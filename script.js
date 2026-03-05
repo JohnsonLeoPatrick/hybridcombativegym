@@ -39,3 +39,15 @@ document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
 
 // Smooth anchors
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}}));
+
+// Dark/Light mode toggle
+const themeBtn=document.getElementById('themeToggle');
+const savedTheme=localStorage.getItem('hybrid-theme');
+if(savedTheme) document.documentElement.setAttribute('data-theme',savedTheme);
+themeBtn?.addEventListener('click',()=>{
+  const current=document.documentElement.getAttribute('data-theme');
+  const next=current==='light'?'dark':'light';
+  if(next==='dark'){document.documentElement.removeAttribute('data-theme');}
+  else{document.documentElement.setAttribute('data-theme','light');}
+  localStorage.setItem('hybrid-theme',next);
+});
