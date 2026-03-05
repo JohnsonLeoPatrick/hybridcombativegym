@@ -1,24 +1,22 @@
-HYBRID COMBATIVE ACADEMY — Website Files
-=========================================
+HYBRID COMBATIVE ACADEMY — Website
+====================================
+index.html              Main page
+css/
+  base.css              Variables, reset, buttons
+  nav.css               Navigation (dynamic island)
+  hero.css              Hero & ticker
+  sections.css          About, ISN, Programs, Who, Why, Coaches
+  membership.css        Pricing cards
+  contact.css           Contact
+  footer.css            Footer & responsive
+js/
+  script.js             Scroll, nav, animations
+coaches/                Place coach portrait photos here
+  coach-ray.jpg, coach-herry.jpg, coach-eswaran.jpg,
+  coach-mano.jpg, coach-azrai.jpg, coach-eric.jpg,
+  coach-marcel.jpg
+logo.png                Hybrid logo (transparent)
+isn-logo.png            ISN badge
+kickbox-bg.jpg          Placeholder bg for membership cards
 
-Files included:
-- index.html      → Main HTML structure
-- styles.css      → All styles (17 organized sections)
-- script.js       → Scroll animations, nav, theme toggle
-- logo.png        → Hybrid demon skull logo (transparent)
-- isn-logo.png    → ISN certification badge
-- README.txt      → This file
-
-REQUIRED (not included due to size):
-- Background.mp4  → Hero background video (place in same folder)
-
-FEATURES:
-- Dark/Light mode toggle (sun/moon icon in nav)
-- Liquid glass buttons throughout
-- Waze button with blue liquid glass
-- Smooth scroll nav with no white border artifacts
-- Hero video with scroll shrink animation
-- ISN certification section
-- Fully responsive mobile design
-
-Place all files in the same folder and open index.html.
+REQUIRED: Background.mp4 (hero video) — place in root

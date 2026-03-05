@@ -1,0 +1,30 @@
+/* HYBRID — Footer & Responsive */
+
+footer{position:relative;z-index:5;background:var(--card-bg);border-top:1px solid var(--card-border);padding:56px 0 24px}
+.fi{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,80px)}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;padding-bottom:36px;border-bottom:1px solid var(--card-border)}
+.fbn{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.fbr p{font-size:13px;color:var(--fg3);line-height:1.8;max-width:280px}
+.fmo{font-family:var(--fd);font-size:16px;font-weight:700;font-style:italic;color:var(--rb);text-shadow:0 0 20px rgba(229,34,34,.25);margin-top:10px}
+.fc h4{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fg4);margin-bottom:14px}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fc ul a{font-size:14px;color:var(--fg3);text-decoration:none;transition:color .2s}.fc ul a:hover{color:var(--y)}
+.fbo{display:flex;align-items:center;justify-content:space-between;padding-top:20px;flex-wrap:wrap;gap:10px}
+.fcp{font-size:11px;color:var(--fg4)}.fcp span{color:var(--r)}
+.fisn{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,200,0,.4)}
+
+/* Responsive */
+@media(max-width:1024px){.pg,.mag{grid-template-columns:1fr 1fr}.coaches-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .ag,.cg{grid-template-columns:1fr}.sg{grid-template-columns:1fr 1fr}
+  .pg,.wg,.mag{grid-template-columns:1fr}.gc{grid-template-columns:1fr}.cig{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr;gap:24px}.fbo{flex-direction:column;text-align:center}
+  nav .nav-links,.nav-cta{display:none}.nav-hamburger{display:flex;flex-direction:column;align-items:center}
+  .mb{grid-template-columns:1fr}
+  nav.scrolled{width:min(360px,85vw);height:44px;padding:0 16px}
+  .logo-icon{height:28px}
+  #hero{justify-content:flex-start;padding-top:15vh}.hc{margin-top:0;padding-top:0}
+  .isn-inner{grid-template-columns:1fr;gap:32px;text-align:center}.isn-logo-img{max-width:320px}
+  .coaches-grid{grid-template-columns:1fr}.coach-photo{height:280px}
+}
+@media(max-width:480px){.sg{grid-template-columns:1fr}#hero{padding-top:12vh}}

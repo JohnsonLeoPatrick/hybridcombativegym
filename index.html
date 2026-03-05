@@ -6,28 +6,32 @@
 <title>Hybrid Combative Academy & Gym</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/membership.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
 <nav id="nav">
-  <a href="#" class="nav-logo">
-    <img class="logo-icon" src="logo.png" alt="Hybrid">
-  </a>
-  <ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#programs">Programs</a></li><li><a href="#membership">Membership</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="#" class="nav-logo"><img class="logo-icon" src="logo.png" alt="Hybrid"></a>
+  <ul class="nav-links"><li><a href="#about">About</a></li><li><a href="#programs">Programs</a></li><li><a href="#coaches">Coaches</a></li><li><a href="#membership">Membership</a></li><li><a href="#contact">Contact</a></li></ul>
   <a href="#membership" class="nav-cta">Join Now</a>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
   <button class="nav-hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="nav-mobile" id="mob"><a href="#about">About</a><a href="#programs">Programs</a><a href="#membership">Membership</a><a href="#contact">Contact</a></div>
+<div class="nav-mobile" id="mob"><a href="#about">About</a><a href="#programs">Programs</a><a href="#coaches">Coaches</a><a href="#membership">Membership</a><a href="#contact">Contact</a></div>
 
+<!-- HERO -->
 <div id="hero">
   <div class="hvw" id="hvw"><div class="hvb" id="hvb"><video class="hero-vid" autoplay muted loop playsinline><source src="Background.mp4" type="video/mp4"></video><div class="ho"></div></div></div>
   <div class="hc" id="hc">
     <div class="hlm"><img class="logo-icon-lg" src="logo.png" alt="Hybrid"></div>
     <div class="hbdg"><div class="bd"></div>ISN Certified · Malaysia's First</div>
-    <h1 class="ht"><span class="y">Hybrid</span><br><span class="r">Combative</span></h1>
-    <p class="hs">Academy & Gym · Bandar Sri Damansara, KL</p>
+    <h1 class="ht"><span class="y">Hybrid</span><br><span class="r">Combative</span><br><span class="ht-sub">Academy & Gym</span></h1>
+    <p class="hs">Bandar Sri Damansara, KL</p>
     <p class="hm">"Rule #1: Never Be #2."</p>
     <div class="hbtns"><a href="#programs" class="btn-bloom">Explore Programs</a><a href="#about" class="btn-glass">Our Story</a></div>
     <div class="hstats"><div class="hstat"><div class="stn">8+</div><div class="stl">Years</div></div><div class="hstat"><div class="stn">3</div><div class="stl">Shop Lots</div></div><div class="hstat"><div class="stn">#1</div><div class="stl">ISN Certified</div></div></div>
@@ -35,15 +39,17 @@
   <div class="shi" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})"><span>Scroll</span><div class="sha"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div></div>
 </div>
 
+<!-- TICKER -->
 <div class="tk"><div class="tkt"><div class="tki"><span class="td"></span>Rule #1: Never Be #2</div><div class="tki"><span class="td"></span>ISN Certified</div><div class="tki"><span class="td"></span>Malaysia's First</div><div class="tki"><span class="td"></span>Strength & Conditioning</div><div class="tki"><span class="td"></span>Martial Arts</div><div class="tki"><span class="td"></span>World-Class Equipment</div><div class="tki"><span class="td"></span>8 Years of Champions</div><div class="tki"><span class="td"></span>Bandar Sri Damansara</div><div class="tki"><span class="td"></span>Rule #1: Never Be #2</div><div class="tki"><span class="td"></span>ISN Certified</div><div class="tki"><span class="td"></span>Malaysia's First</div><div class="tki"><span class="td"></span>Strength & Conditioning</div><div class="tki"><span class="td"></span>Martial Arts</div><div class="tki"><span class="td"></span>World-Class Equipment</div><div class="tki"><span class="td"></span>8 Years of Champions</div><div class="tki"><span class="td"></span>Bandar Sri Damansara</div></div></div>
 
+<!-- ABOUT -->
 <section id="about" class="sec">
   <div class="sr"><div class="lbl">Our Story</div><h2 class="st">Where Strength<br><span class="a">Meets Skill</span></h2></div>
   <div class="ag">
     <div>
-      <p class="bt sr sd1" style="margin-bottom:14px"><strong style="color:#fff;font-weight:500">Hybrid Combative Academy & Gym</strong> started from a single shop lot and grew into a <strong style="color:#fff;font-weight:500">three-shop-lot training powerhouse</strong> over 8 years.</p>
-      <p class="bt sr sd2" style="margin-bottom:14px">Our motto? <em style="color:var(--rb);font-weight:700;font-size:18px;text-shadow:0 0 20px rgba(229,34,34,.2)">"Rule #1: Never Be #2."</em> That mindset drives everything — rare equipment, world-class coaching, and a community that refuses to settle.</p>
-      <p class="bt sr sd3" style="margin-bottom:24px">From elderly members staying active, to kids aspiring to be champions, to competitive fighters prepping for nationals — we have pathways for everyone.</p>
+      <p class="bt sr sd1" style="margin-bottom:14px"><strong class="bt-strong">Hybrid Combative Academy & Gym</strong> is where strength meets skill, and champions are forged. Established eight years ago from a humble one-shop-lot gym, we've grown into a <strong class="bt-strong">three-shop-lot training powerhouse</strong>, proving that dedication and hard work build more than just muscle — they build legacies.</p>
+      <p class="bt sr sd2" style="margin-bottom:14px">Our motto? <em style="color:var(--rb);font-weight:700;font-size:18px;text-shadow:0 0 20px rgba(229,34,34,.2)">"Rule #1: Never Be #2."</em> That mindset drives everything we do — rare, high-quality equipment, world-class coaching, and a community that pushes you to be your best.</p>
+      <p class="bt sr sd3" style="margin-bottom:24px">From elderly members staying fit, to kids aspiring to be future athletes, to competitive fighters prepping for nationals — we have programs for everyone. And unlike many gyms, we believe in full transparency: no hidden fees, no contracts, just pure commitment to your growth.</p>
       <div class="isnc sr sd4"><h4>⭐ Institut Sukan Negara Certified</h4><p>The <strong>first and only gym in Malaysia</strong> officially certified by ISN — the same standard trusted for our national athletes.</p></div>
     </div>
     <div class="acs sr sd2">
@@ -57,9 +63,7 @@
 <!-- ISN RECOGNITION -->
 <div class="isn-sec">
   <div class="isn-inner">
-    <div class="isn-logo-wrap sr">
-      <img class="isn-logo-img" src="isn-logo.png" alt="Institut Sukan Negara Malaysia">
-    </div>
+    <div class="isn-logo-wrap sr"><img class="isn-logo-img" src="isn-logo.png" alt="Institut Sukan Negara Malaysia"></div>
     <div class="isn-text sr sd2">
       <div class="lbl">Recognition</div>
       <h2 class="st">Malaysia's First<br><span class="a">ISN Certified Gym</span></h2>
@@ -69,6 +73,7 @@
   </div>
 </div>
 
+<!-- PROGRAMS -->
 <section id="programs" class="sec">
   <div class="sr"><div class="lbl">What We Offer</div><h2 class="st">Train Hard.<br><span class="a">Train Smart.</span></h2></div>
   <div class="pg">
@@ -78,6 +83,7 @@
   </div>
 </section>
 
+<!-- WHO WE SERVE -->
 <div class="secw"><div class="secwi">
   <div class="sr"><div class="lbl">Who We're For</div><h2 class="st">Everyone Is<br><span class="a">Welcome Here</span></h2></div>
   <div class="sg">
@@ -88,6 +94,7 @@
   </div>
 </div></div>
 
+<!-- WHY HYBRID -->
 <div class="secw ws"><div class="secwi">
   <div class="sr"><div class="lbl">Our Edge</div><h2 class="st">Why Choose<br><span class="a">Hybrid?</span></h2></div>
   <div class="wg">
@@ -100,6 +107,104 @@
   </div>
 </div></div>
 
+<!-- COACHES -->
+<section id="coaches" class="sec">
+  <div class="sr"><div class="lbl">Meet Our Expert Trainers</div><h2 class="st">Our<br><span class="a">Coaches</span></h2></div>
+  <div class="coaches-grid">d sr sd1">
+      <div class="coach-photo"><img src="coaches/coach-ray.jpg" alt="Coach Ray" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="coach-ph">CR</div></div>
+      <div class="coach-body">
+        <h3>Coach Ray</h3>
+        <span class="coach-role">Strength & Conditioning / MMA</span>
+        <ul class="coach-points">
+          <li>Gold Medallist — 1997 SEA Games Greco-Roman Wrestling</li>
+          <li>Sports Science Level 2 — 10+ years coaching champions</li>
+          <li>Specialist in bodybuilding, MMA & athletic performance</li>
+        </ul>
+        <a href="#contact" class="btn-glass btn-sm">Contact Us</a>
+      </div>
+    </div>
+    <div class="coach-card sr sd2">
+      <div class="coach-photo"><img src="coaches/coach-herry.jpg" alt="Coach Herry" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="coach-ph">CH</div></div>
+      <div class="coach-body">
+        <h3>Coach Herry Rocko</h3>
+        <span class="coach-role">Muay Thai & Fitness Coach</span>
+        <ul class="coach-points">
+          <li>13 years in Muay Thai, body transformation & competitive training</li>
+          <li>Guided fighters to MMA and Muay Thai competitions</li>
+          <li>Expert in weight loss, strength building & fight prep</li>
+        </ul>
+        <a href="#contact" class="btn-glass btn-sm">Contact Us</a>
+      </div>
+    </div>
+    <div class="coach-card sr sd3">
+      <div class="coach-photo"><img src="coaches/coach-eswaran.jpg" alt="Coach Eswaran" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="coach-ph">CE</div></div>
+      <div class="coach-body">
+        <h3>Coach Eswaran</h3>
+        <span class="coach-role">Professional Boxer</span>
+        <ul class="coach-points">
+          <li>Pro boxer & IBA Champion — 25+ years ring experience</li>
+          <li>14 years coaching from beginners to professionals</li>
+          <li>Focus on discipline, strategy & fighter's mindset</li>
+        </ul>
+        <a href="#contact" class="btn-glass btn-sm">Contact Us</a>
+      </div>
+    </div>
+    <div class="coach-card sr sd1">
+      <div class="coach-photo"><img src="coaches/coach-mano.jpg" alt="Coach Mano" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="coach-ph">CM</div></div>
+      <div class="coach-body">
+        <h3>Coach Mano Subra</h3>
+        <span class="coach-role">Karate / High-Performance Trainer</span>
+        <ul class="coach-points">
+          <li>3rd Dan Black Belt (Shito-Ryu) — MAKAF & MSN accredited</li>
+          <li>10+ years blending martial arts with modern sports science</li>
+          <li>Builds competition-ready athletes from beginner to elite</li>
+        </ul>
+        <a href="#contact" class="btn-glass btn-sm">Contact Us</a>
+      </div>
+    </div>
+    <div class="coach-card sr sd2">
+      <div class="coach-photo"><img src="coaches/coach-azrai.jpg" alt="Coach Azrai" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="coach-ph">CA</div></div>
+      <div class="coach-body">
+        <h3>Coach Azrai</h3>
+        <span class="coach-role">Brazilian Jiu-Jitsu Master</span>
+        <ul class="coach-points">
+          <li>15+ years in BJJ — background in Muay Thai, TKD & Silat</li>
+          <li>Students won gold, silver & bronze across Asia</li>
+          <li>Technical coaching focused on fundamentals & self-defense</li>
+        </ul>
+        <a href="#contact" class="btn-glass btn-sm">Contact Us</a>
+      </div>
+    </div>
+    <div class="coach-card sr sd3">
+      <div class="coach-photo"><img src="coaches/coach-eric.jpg" alt="Coach Eric" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="coach-ph">EK</div></div>
+      <div class="coach-body">
+        <h3>Coach Eric Khoo</h3>
+        <span class="coach-role">Martial Arts Specialist</span>
+        <ul class="coach-points">
+          <li>7th Dan ITF Taekwon-Do — JKD, Filipino Kali & Hapkido certified</li>
+          <li>Nearly 40 years martial arts experience since 1985</li>
+          <li>Kids TKD, JKD & Kali for teens/adults, private training</li>
+        </ul>
+        <a href="#contact" class="btn-glass btn-sm">Contact Us</a>
+      </div>
+    </div>
+    <div class="coach-card sr sd1">
+      <div class="coach-photo"><img src="coaches/coach-marcel.jpg" alt="Coach Marcel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="coach-ph">MF</div></div>
+      <div class="coach-body">
+        <h3>Coach Marcel Fabian</h3>
+        <span class="coach-role">Combat Sports Expert</span>
+        <ul class="coach-points">
+          <li>30+ years in Kickboxing, Taekwondo & Boxing</li>
+          <li>Trained national and state champions</li>
+          <li>Builds resilience, character & a champion's mindset</li>
+        </ul>
+        <a href="#contact" class="btn-glass btn-sm">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
 <section id="membership" class="sec">
   <div class="sr"><div class="lbl">Pricing</div><h2 class="st">Join the<br><span class="a">Hybrid Family</span></h2><p class="bt" style="max-width:440px">Transparent pricing. No contracts. No hidden fees.</p></div>
   <div class="ml sr">Gym Membership</div>
@@ -115,10 +220,12 @@
     <div class="mac"><div class="mah"><div class="mai"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="4" y1="4" x2="20" y2="20" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="4" x2="4" y2="20" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round"/></svg></div><h3>Jeet Kune Do</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">190</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Mon 6–7PM</li></ul><a href="#contact" class="btn-glass btn-sm">Sign Up</a></div></div>
     <div class="mac"><div class="mah"><div class="mai"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="4" y1="4" x2="20" y2="20" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="4" x2="4" y2="20" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round"/></svg></div><h3>Filipino Kali</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">190</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>AFJKD Certified</li></ul><a href="#contact" class="btn-glass btn-sm">Sign Up</a></div></div>
     <div class="mac"><div class="mah"><div class="mai"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#f5c800" stroke-width="2"/><path d="M8 12l3 3 5-6" stroke="#f5c800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>MMA</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Wed 6–7:30PM</li></ul><a href="#contact" class="btn-glass btn-sm">Sign Up</a></div></div>
+    <div class="mac"><div class="mah"><div class="mai"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="8" rx="2" stroke="#f5c800" stroke-width="2"/><circle cx="8" cy="12" r="1.5" fill="#f5c800"/><circle cx="16" cy="12" r="1.5" fill="#f5c800"/></svg></div><h3>S&C</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Every Wed</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>For competing athletes</li></ul><a href="#contact" class="btn-glass btn-sm">Sign Up</a></div></div>
   </div>
 </section>
 
-<section id="contact" class="secw" style="background:rgba(245,200,0,.008);border-top:1px solid rgba(245,200,0,.03)">
+<!-- CONTACT -->
+<section id="contact" class="secw contact-sec">
   <div class="secwi">
     <div class="sr"><div class="lbl">Find Us</div><h2 class="st">Get in<br><span class="a">Touch</span></h2></div>
     <div class="cg">
@@ -137,17 +244,18 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="fi">
     <div class="ft">
       <div class="fbr"><div class="fbn"><img style="height:32px;width:auto;filter:drop-shadow(0 0 6px rgba(245,200,0,.25))" src="logo.png" alt="Hybrid"> <span style="font-family:var(--fd);font-size:18px;font-weight:800;color:var(--y)">HYBRID</span></div><p>Where strength meets skill, and champions are forged. 8 years strong.</p><div class="fmo">"Rule #1: Never Be #2."</div></div>
-      <div class="fc"><h4>Quick Links</h4><ul><li><a href="#about">About Us</a></li><li><a href="#programs">Programs</a></li><li><a href="#membership">Membership</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="fc"><h4>Quick Links</h4><ul><li><a href="#about">About Us</a></li><li><a href="#programs">Programs</a></li><li><a href="#coaches">Coaches</a></li><li><a href="#membership">Membership</a></li><li><a href="#contact">Contact</a></li></ul></div>
       <div class="fc"><h4>Programs</h4><ul><li><a href="#membership">Kick-Boxing</a></li><li><a href="#membership">Muay-Thai</a></li><li><a href="#membership">MMA</a></li><li><a href="#membership">Jeet Kune Do</a></li><li><a href="#membership">S&C</a></li></ul></div>
     </div>
     <div class="fbo"><div class="fcp">© 2026 Hybrid Combative Academy & Gym. Built with <span>♥</span></div><div class="fisn">ISN Certified · Malaysia's #1</div></div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

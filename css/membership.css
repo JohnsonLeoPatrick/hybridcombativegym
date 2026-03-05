@@ -1,0 +1,32 @@
+/* HYBRID — Membership & Pricing */
+
+.ml{display:flex;align-items:center;gap:10px;font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin:60px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--card-border)}
+.gc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mc{padding:36px;border-radius:24px;display:flex;flex-direction:column;background:rgba(245,200,0,.03);border:1px solid rgba(245,200,0,.1);transition:all .35s var(--ease);position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;inset:0;background:url('../kickbox-bg.jpg') center/cover no-repeat;opacity:.08;pointer-events:none}
+.mc:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.mtp{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--r);margin-bottom:18px;position:relative}
+.mpr{display:flex;align-items:flex-start;gap:3px;margin-bottom:3px;position:relative}
+.mrm{font-family:var(--fd);font-size:20px;font-weight:600;color:var(--y);margin-top:12px}
+.mam{font-family:var(--fd);font-size:84px;font-weight:900;color:var(--y);line-height:.85;letter-spacing:-.04em}
+.mpe{font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:22px;position:relative}
+.mf{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1;position:relative}
+.mf li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--fg2)}
+.ck{width:15px;height:15px;flex-shrink:0}
+
+/* Martial arts cards — with background image */
+.mag{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mac{border-radius:20px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;flex-direction:column;overflow:hidden;transition:all .35s var(--ease);position:relative}
+.mac::before{content:'';position:absolute;inset:0;background:url('../kickbox-bg.jpg') center/cover no-repeat;opacity:.06;pointer-events:none}
+.mac:hover{transform:translateY(-3px);border-color:rgba(245,200,0,.18);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+.mah{padding:18px 20px 0;display:flex;align-items:center;gap:12px;position:relative}
+.mai{width:38px;height:38px;flex-shrink:0;background:rgba(245,200,0,.06);border:1px solid rgba(245,200,0,.12);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.mah h3{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--y)}
+.mas{font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--r);padding:3px 20px 0;position:relative}
+.mab{padding:12px 20px 20px;flex:1;display:flex;flex-direction:column;position:relative}
+.mapr{display:flex;align-items:flex-start;gap:3px}
+.marm{font-family:var(--fd);font-size:16px;font-weight:600;color:var(--y);margin-top:5px}
+.maam{font-family:var(--fd);font-size:44px;font-weight:900;color:var(--y);line-height:.85;letter-spacing:-.03em}
+.mape{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:12px}
+.maf{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;flex:1}
+.maf li{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--fg2)}
