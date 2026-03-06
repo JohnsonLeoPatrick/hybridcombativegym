@@ -5,26 +5,51 @@ const mob=document.getElementById('mob');
 
 // Super smooth scroll with rAF — one listener, no jank
 let ticking=false,lastScroll=0;
+let navCompact=false;
+const NAV_ENTER_SCROLL=70;
+const NAV_EXIT_SCROLL=30;
+
+const updateOnScroll=()=>{
+  if(nav){
+    // Hysteresis prevents flicker when hovering around the threshold.
+    const shouldCompact=navCompact?lastScroll>NAV_EXIT_SCROLL:lastScroll>NAV_ENTER_SCROLL;
+    if(shouldCompact!==navCompact){
+      navCompact=shouldCompact;
+      nav.classList.toggle('scrolled',navCompact);
+    }
+  }
+
+  if(mob) mob.style.top=navCompact?'62px':'68px';
+
+  if(hero&&hvw&&hc){
+    const h=hero.offsetHeight;
+    const p=Math.min(Math.max(lastScroll/(h*.6),0),1);
+    hvw.style.transform='scale('+(1-p*.18)+') translateZ(0)';
+    hvw.style.borderRadius=(p*44)+'px';
+    hc.style.opacity=1-p*2.2;
+    hc.style.transform='translateY('+(p*-50)+'px) scale('+(1-p*.06)+') translateZ(0)';
+    if(shi) shi.style.opacity=1-p*5;
+  }
+};
+
 addEventListener('scroll',()=>{
   lastScroll=scrollY;
   if(!ticking){
     requestAnimationFrame(()=>{
-      nav.classList.toggle('scrolled',lastScroll>50);
-      if(mob) mob.style.top=lastScroll>50?'62px':'68px';
-      if(hero&&hvw&&hc){
-        const h=hero.offsetHeight;
-        const p=Math.min(Math.max(lastScroll/(h*.6),0),1);
-        hvw.style.transform='scale('+(1-p*.18)+') translateZ(0)';
-        hvw.style.borderRadius=(p*44)+'px';
-        hc.style.opacity=1-p*2.2;
-        hc.style.transform='translateY('+(p*-50)+'px) scale('+(1-p*.06)+') translateZ(0)';
-        if(shi) shi.style.opacity=1-p*5;
-      }
+      updateOnScroll();
       ticking=false;
     });
     ticking=true;
   }
 },{passive:true});
+
+// Ensure correct nav state on initial load and when viewport changes.
+lastScroll=scrollY;
+updateOnScroll();
+addEventListener('resize',()=>{
+  lastScroll=scrollY;
+  updateOnScroll();
+});
 
 // Hamburger
 const hbg=document.getElementById('hbg');

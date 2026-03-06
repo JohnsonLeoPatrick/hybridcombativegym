@@ -1,10 +1,10 @@
 /* HYBRID — Navigation (Dynamic Island) */
 
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:60px;display:flex;align-items:center;padding:0 clamp(20px,5vw,80px);background:transparent;will-change:transform,opacity}
-nav.scrolled{top:10px;left:50%;right:auto;transform:translateX(-50%);width:min(680px,90vw);height:48px;border-radius:980px;background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:var(--nav-shadow);padding:0 24px}
+nav{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;z-index:1000;height:60px;display:flex;align-items:center;padding:0 clamp(20px,5vw,80px);background:transparent;will-change:transform,width,height,padding,top}
+nav.scrolled{top:10px;width:min(680px,90vw);height:48px;border-radius:980px;background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:var(--nav-shadow);padding:0 24px}
 
 /* GPU-accelerated transition — only animate specific properties for smoothness */
-nav{transition-property:top,left,right,width,height,padding,background,border-radius,box-shadow,transform;transition-duration:.45s;transition-timing-function:cubic-bezier(.4,0,.2,1)}
+nav{transition-property:top,width,height,padding,background,border-radius,box-shadow;transition-duration:.45s;transition-timing-function:cubic-bezier(.4,0,.2,1)}
 
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;height:100%}
 .nav-links{display:flex;gap:24px;margin-left:auto;list-style:none;align-items:center}

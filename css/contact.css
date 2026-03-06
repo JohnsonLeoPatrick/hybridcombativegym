@@ -3,7 +3,7 @@
 .contact-sec{background:rgba(245,200,0,.008);border-top:1px solid rgba(245,200,0,.04)}
 .cg{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(28px,4vw,56px);margin-top:56px}
 .ccs{display:flex;flex-direction:column;gap:12px}
-.cc{padding:20px;display:flex;gap:14px;align-items:flex-start;border-radius:16px;background:var(--card-bg);border:1px solid var(--card-border);border-left:2px solid var(--y)}
+.cc{padding:20px;display:flex;gap:14px;align-items:flex-start;border-radius:16px;background:var(--card-bg);border:1px solid var(--card-border)}
 .cct h4{font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);margin-bottom:3px}
 .cct p,.cct a{font-size:14px;color:var(--fg2);line-height:1.7;text-decoration:none}.cct a{color:var(--y)}
 .mb{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
