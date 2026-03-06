@@ -1,17 +1,21 @@
 /* HYBRID — Hero & Ticker */
 
 #hero{position:relative;height:100vh;min-height:700px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:visible}
-.hvw{position:absolute;inset:0;z-index:0;will-change:transform;overflow:hidden}
+.hvw{position:absolute;inset:0;z-index:0;will-change:transform;overflow:hidden;contain:paint;backface-visibility:hidden;transform:translateZ(0)}
 .hvb{width:100%;height:100%;overflow:hidden;position:relative;background:#000}
-.hero-vid{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
+.hero-vid{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate3d(-50%,-50%,0) translateZ(0);object-fit:cover;will-change:transform,opacity;backface-visibility:hidden}
 .ho{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.6) 0%,rgba(0,0,0,.15) 35%,rgba(0,0,0,.1) 55%,rgba(0,0,0,.88) 100%)}
 
 /* Hero content — no overflow hidden so logo isn't clipped */
 .hc{position:relative;z-index:10;text-align:center;padding:0 clamp(20px,5vw,80px);display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hlm{animation:hf 1s ease .15s both;margin-bottom:20px}
-.hbdg{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--y);padding:8px 20px;border-radius:980px;background:rgba(245,200,0,.06);border:1px solid rgba(245,200,0,.12);backdrop-filter:blur(12px);margin-bottom:24px;animation:hf 1s ease .3s both}
+.hbdg{display:inline-flex;align-items:center;gap:8px;font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--y);padding:8px 20px;border-radius:980px;background:rgba(245,200,0,.06);border:1px solid rgba(245,200,0,.12);backdrop-filter:blur(12px);margin-top:18px;margin-bottom:24px;animation:hf 1s ease .3s both}
 .bd{width:5px;height:5px;border-radius:50%;background:var(--y);animation:bk 1.5s ease-in-out infinite}
 @keyframes bk{0%,100%{opacity:1}50%{opacity:.12}}
+.hero-wordmark-wrap{animation:hf 1s ease .4s both;margin-bottom:10px}
+.hero-wordmark{display:block;width:min(92vw,860px);height:auto;filter:drop-shadow(0 0 26px rgba(245,200,0,.25)) drop-shadow(0 6px 18px rgba(0,0,0,.45))}
+.hero-wordmark-fallback{margin-bottom:0}
+@media(min-width:769px){.hero-wordmark{width:min(74vw,680px)}}
 .ht{font-family:var(--fd);font-weight:900;font-size:clamp(52px,11vw,140px);line-height:.88;letter-spacing:-.02em;color:var(--y);text-shadow:
     -3px -3px 0 rgba(0,0,0,.4),
     3px -3px 0 rgba(0,0,0,.4),
@@ -69,3 +73,10 @@
 .tki{font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#000;padding:0 28px;white-space:nowrap;display:flex;align-items:center;gap:12px}
 .td{width:4px;height:4px;border-radius:50%;background:var(--r);flex-shrink:0}
 @keyframes tks{to{transform:translateX(-50%)}}
+
+@media(max-width:768px){
+    .hbdg{backdrop-filter:none;border-color:rgba(245,200,0,.18)}
+    .hero-wordmark{filter:drop-shadow(0 0 16px rgba(245,200,0,.2))}
+    .ht,.ht .y,.ht-sub{ text-shadow:0 0 24px rgba(245,200,0,.24)}
+    .hm{text-shadow:0 0 22px rgba(229,34,34,.24)}
+}

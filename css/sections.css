@@ -57,17 +57,19 @@
 .wi h3{font-family:var(--fd);font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
 .wi p{font-size:13px;color:var(--fg3);line-height:1.75}
 
-/* Coaches — Compact 3-col on desktop */
+/* Coaches — full photo card with bottom readable overlay */
 .coaches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
-.coach-card{border-radius:18px;background:var(--card-bg);border:1px solid var(--card-border);overflow:hidden;transition:all .4s var(--ease);display:flex;flex-direction:column}
-.coach-card:hover{transform:translateY(-4px);border-color:rgba(245,200,0,.12);box-shadow:0 16px 48px rgba(0,0,0,.2)}
-.coach-photo{position:relative;width:100%;height:220px;overflow:hidden;background:linear-gradient(135deg,rgba(245,200,0,.06),rgba(229,34,34,.04))}
-.coach-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-.coach-ph{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-family:var(--fd);font-size:48px;font-weight:900;color:rgba(245,200,0,.12);position:absolute;top:0;left:0}
+.coach-card{position:relative;min-height:520px;border-radius:18px;background:#090909;border:1px solid var(--card-border);overflow:hidden;transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.coach-card:hover{transform:translateY(-4px);border-color:rgba(245,200,0,.18);box-shadow:0 20px 58px rgba(0,0,0,.35)}
+.coach-photo{position:absolute;inset:0;overflow:hidden;background:radial-gradient(circle at 20% 10%,rgba(245,200,0,.12),rgba(0,0,0,0) 45%),#070707}
+.coach-photo img{width:100%;height:100%;object-fit:contain;object-position:center top;display:block}
+.coach-photo::after{content:"";position:absolute;inset:0;background-image:url("../kickbox-bg.jpg");background-size:cover;background-position:center 22%;opacity:.14;mix-blend-mode:screen;pointer-events:none}
+.coach-ph{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-family:var(--fd);font-size:64px;font-weight:900;color:rgba(245,200,0,.16);position:absolute;top:0;left:0}
 .coach-photo img[style*="display: none"]+.coach-ph,.coach-photo img[style*="display:none"]+.coach-ph{display:flex!important}
-.coach-body{padding:20px;flex:1;display:flex;flex-direction:column}
-.coach-body h3{font-family:var(--fd);font-size:17px;font-weight:700;color:#fff;margin-bottom:3px}
-.coach-role{font-family:var(--fb);font-size:10px;font-weight:600;color:var(--y);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:12px}
-.coach-points{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:14px;flex:1}
-.coach-points li{font-size:12px;color:var(--fg2);line-height:1.5;padding-left:14px;position:relative}
+.coach-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px 18px 16px;display:flex;flex-direction:column;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.7) 52%,rgba(0,0,0,.24) 80%,rgba(0,0,0,0) 100%);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.coach-body h3{font-family:var(--fd);font-size:17px;font-weight:700;color:#fff;margin-bottom:3px;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.coach-role{font-family:var(--fb);font-size:10px;font-weight:600;color:var(--y);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:10px}
+.coach-points{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.coach-points li{font-size:12px;color:rgba(255,255,255,.86);line-height:1.45;padding-left:14px;position:relative;text-shadow:0 1px 6px rgba(0,0,0,.65)}
 .coach-points li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--y)}
+.coach-body .btn-sm{align-self:flex-start}

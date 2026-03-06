@@ -1,10 +1,10 @@
 /* HYBRID — Navigation (Dynamic Island) */
 
-nav{position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;z-index:1000;height:60px;display:flex;align-items:center;padding:0 clamp(20px,5vw,80px);background:transparent;will-change:transform,width,height,padding,top}
-nav.scrolled{top:10px;width:min(680px,90vw);height:48px;border-radius:980px;background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:var(--nav-shadow);padding:0 24px}
+nav{position:fixed;top:10px;left:50%;transform:translate3d(-50%,0,0);width:min(1180px,96vw);z-index:1000;height:60px;display:flex;align-items:center;padding:0 clamp(20px,5vw,80px);background:rgba(10,10,10,.28);border:1px solid rgba(255,255,255,.04);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);will-change:transform,width,height,padding;backface-visibility:hidden;box-shadow:0 4px 24px rgba(0,0,0,.22);border-radius:980px}
+nav.scrolled{transform:translate3d(-50%,8px,0);width:min(680px,90vw);height:48px;border-radius:980px;background:var(--nav-bg);border-color:var(--card-border);box-shadow:var(--nav-shadow);padding:0 24px}
 
 /* GPU-accelerated transition — only animate specific properties for smoothness */
-nav{transition-property:top,width,height,padding,background,border-radius,box-shadow;transition-duration:.45s;transition-timing-function:cubic-bezier(.4,0,.2,1)}
+nav{transition-property:transform,width,height,padding,background,border-radius,box-shadow,border-color;transition-duration:.36s;transition-timing-function:cubic-bezier(.22,.61,.36,1)}
 
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;height:100%}
 .nav-links{display:flex;gap:24px;margin-left:auto;list-style:none;align-items:center}
@@ -13,13 +13,23 @@ nav{transition-property:top,width,height,padding,background,border-radius,box-sh
 .nav-cta{margin-left:16px;padding:7px 18px;border-radius:980px;background:rgba(245,200,0,.12);border:1px solid rgba(245,200,0,.25);color:var(--y);font-family:var(--fb);font-size:12px;font-weight:600;text-decoration:none;transition:all .3s var(--ease)}
 .nav-cta:hover{background:rgba(245,200,0,.22);box-shadow:var(--bloom);color:#fff}
 
-/* Hamburger — invisible box, just lines */
-.nav-hamburger{display:none;background:transparent;border:none;cursor:pointer;margin-left:auto;padding:8px;outline:none;-webkit-tap-highlight-color:transparent}
-.nav-hamburger span{display:block;width:18px;height:1.5px;background:#fff;margin:4px 0;transition:transform .3s,opacity .3s}
+/* Hamburger — higher contrast and smoother class-based motion */
+.nav-hamburger{display:none;background:transparent;border:none;cursor:pointer;margin-left:auto;padding:9px 10px;outline:none;-webkit-tap-highlight-color:transparent;border-radius:12px;box-shadow:none}
+.nav-hamburger span{display:block;width:22px;height:2px;background:linear-gradient(90deg,#fff,var(--y));margin:4px 0;border-radius:999px;transform-origin:center;transition:transform .28s var(--ease),opacity .2s var(--ease),background .25s var(--ease)}
+.nav-hamburger:hover span{background:linear-gradient(90deg,#fff,#ffe278)}
+.nav-hamburger.is-active span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-hamburger.is-active span:nth-child(2){opacity:0;transform:scaleX(.5)}
+.nav-hamburger.is-active span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 /* Mobile dropdown */
-.nav-mobile{display:none;position:fixed;top:64px;left:12px;right:12px;z-index:999;border-radius:20px;background:var(--nav-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--card-border);flex-direction:column;padding:12px 0}
+.nav-mobile{display:none;position:fixed;top:78px;left:12px;right:12px;z-index:999;border-radius:20px;background:var(--nav-bg);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid var(--card-border);flex-direction:column;padding:12px 0;transition:top .25s var(--ease)}
+.nav-mobile.is-scrolled{top:72px}
 .nav-mobile.open{display:flex;animation:navSlide .3s var(--ease)}
 .nav-mobile a{font-family:var(--fb);font-size:15px;color:var(--fg2);text-decoration:none;padding:14px 28px;transition:color .2s}
 .nav-mobile a:hover{color:var(--y);background:rgba(245,200,0,.04)}
 @keyframes navSlide{from{opacity:0;transform:translateY(-10px) scale(.97)}to{opacity:1;transform:none}}
+
+@media(max-width:768px){
+	nav{background:rgba(10,10,10,.86);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+	.nav-mobile{background:rgba(10,10,10,.92);backdrop-filter:none;-webkit-backdrop-filter:none}
+}
