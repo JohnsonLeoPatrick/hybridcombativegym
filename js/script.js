@@ -1,5 +1,6 @@
 const nav=document.getElementById('nav');
-const hvw=document.getElementById('hvw'),hc=document.getElementById('hc'),hero=document.getElementById('hero');
+const hvw=document.getElementById('hvw'),hvb=document.getElementById('hvb'),hc=document.getElementById('hc'),hero=document.getElementById('hero');
+const heroVideo=document.querySelector('.hero-vid');
 const shi=document.querySelector('.shi');
 const mob=document.getElementById('mob');
 const prefersReducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -16,17 +17,33 @@ let heroHeight=hero?hero.offsetHeight:1;
 let framePending=false;
 const NAV_ENTER_SCROLL=96;
 const NAV_EXIT_SCROLL=36;
-const HERO_SCROLL_RANGE=lowPowerMode?.62:.52;
+const HERO_SCROLL_RANGE=lowPowerMode?.58:.44;
 const HERO_SMOOTHING=lowPowerMode?.18:.14;
 
 const renderHero=(p)=>{
-  const yShift=(lowPowerMode?24:40)*p;
-  const bgScale=1-p*(lowPowerMode?.1:.18);
-  const contentShift=(lowPowerMode?22:40)*p;
+  const yShift=(lowPowerMode?36:72)*p;
+  const bgScale=1-p*(lowPowerMode?.14:.24);
+  const contentShift=(lowPowerMode?28:52)*p;
   const contentScale=1-p*(lowPowerMode?.05:.07);
-  const contentFade=Math.max(0,1-p*(lowPowerMode?1.6:2.25));
+  const contentFade=Math.max(0,1-p*(lowPowerMode?1.75:2.35));
+  const curveProgress=Math.pow(p,.85);
+  const radius=(lowPowerMode?26:58)*curveProgress;
+  const sideInset=(lowPowerMode?2.6:5.8)*curveProgress;
+  const topInset=(lowPowerMode?.7:1.5)*curveProgress;
+  const bottomInset=(lowPowerMode?2.8:6.5)*curveProgress;
+  const ambientStrength=Math.max(0,(curveProgress-.08)/.92)*(lowPowerMode?.58:.9);
+  const glowA=.14+curveProgress*.26;
+  const glowB=.1+curveProgress*.24;
+  const ring=.12+curveProgress*.2;
 
   hvw.style.transform='translate3d(0,'+yShift.toFixed(2)+'px,0) scale('+bgScale.toFixed(4)+')';
+  hvw.style.clipPath='inset('+topInset.toFixed(2)+'% '+sideInset.toFixed(2)+'% '+bottomInset.toFixed(2)+'% '+sideInset.toFixed(2)+'% round '+radius.toFixed(1)+'px)';
+  if(hvb){
+    hvb.style.borderRadius=radius.toFixed(1)+'px';
+    hvb.style.setProperty('--ambient',ambientStrength.toFixed(3));
+    hvb.style.setProperty('--ambient-blur',(28+curveProgress*48).toFixed(1)+'px');
+    hvb.style.boxShadow='0 0 0 1px rgba(245,200,0,'+ring.toFixed(3)+'),0 0 '+(26+curveProgress*68).toFixed(1)+'px rgba(245,200,0,'+glowA.toFixed(3)+'),0 0 '+(52+curveProgress*132).toFixed(1)+'px rgba(229,34,34,'+glowB.toFixed(3)+')';
+  }
   hc.style.opacity=contentFade.toFixed(3);
   hc.style.transform='translate3d(0,'+(contentShift*-1).toFixed(2)+'px,0) scale('+contentScale.toFixed(4)+')';
   if(shi) shi.style.opacity=Math.max(0,1-p*5).toFixed(3);
@@ -87,6 +104,30 @@ addEventListener('resize',()=>{
   queueTick();
 });
 
+// Avoid showing placeholder first-frame art: reveal video only when playable.
+if(hvb&&heroVideo){
+  const setReady=()=>hvb.classList.add('is-video-ready');
+  const setLoading=()=>hvb.classList.remove('is-video-ready');
+
+  setLoading();
+
+  heroVideo.addEventListener('loadedmetadata',()=>{
+    try{
+      if(heroVideo.currentTime<0.18&&heroVideo.duration>0.3){
+        heroVideo.currentTime=0.18;
+      }
+    }catch{}
+  },{once:true});
+
+  heroVideo.addEventListener('canplay',setReady,{once:true});
+  heroVideo.addEventListener('playing',setReady,{once:true});
+  heroVideo.addEventListener('error',setLoading);
+
+  if(heroVideo.readyState>=3){
+    setReady();
+  }
+}
+
 // Hamburger
 const hbg=document.getElementById('hbg');
 hbg?.setAttribute('aria-expanded','false');
@@ -117,7 +158,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 const transitionOverlay=document.createElement('div');
 transitionOverlay.className='page-transition';
 transitionOverlay.setAttribute('aria-hidden','true');
-transitionOverlay.innerHTML='<img class="page-transition-logo" src="logo.png" alt="">';
+transitionOverlay.innerHTML='<img class="page-transition-logo" src="media/images/logo.png" alt="">';
 document.body.appendChild(transitionOverlay);
 
 const shouldTransition=(href)=>{

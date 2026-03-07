@@ -63,7 +63,7 @@
 .coach-card:hover{transform:translateY(-4px);border-color:rgba(245,200,0,.18);box-shadow:0 20px 58px rgba(0,0,0,.35)}
 .coach-photo{position:absolute;inset:0;overflow:hidden;background:radial-gradient(circle at 20% 10%,rgba(245,200,0,.12),rgba(0,0,0,0) 45%),#070707}
 .coach-photo img{width:100%;height:100%;object-fit:contain;object-position:center top;display:block}
-.coach-photo::after{content:"";position:absolute;inset:0;background-image:url("../kickbox-bg.jpg");background-size:cover;background-position:center 22%;opacity:.14;mix-blend-mode:screen;pointer-events:none}
+.coach-photo::after{content:"";position:absolute;inset:0;background-image:url("../media/images/kickbox-bg.jpg");background-size:cover;background-position:center 22%;opacity:.14;mix-blend-mode:screen;pointer-events:none}
 .coach-ph{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-family:var(--fd);font-size:64px;font-weight:900;color:rgba(245,200,0,.16);position:absolute;top:0;left:0}
 .coach-photo img[style*="display: none"]+.coach-ph,.coach-photo img[style*="display:none"]+.coach-ph{display:flex!important}
 .coach-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px 18px 16px;display:flex;flex-direction:column;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.7) 52%,rgba(0,0,0,.24) 80%,rgba(0,0,0,0) 100%);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}

@@ -15,8 +15,18 @@ coaches/                Place coach portrait photos here
   coach-ray.jpg, coach-herry.jpg, coach-eswaran.jpg,
   coach-mano.jpg, coach-azrai.jpg, coach-eric.jpg,
   coach-marcel.jpg
-logo.png                Hybrid logo (transparent)
-isn-logo.png            ISN badge
-kickbox-bg.jpg          Placeholder bg for membership cards
+automation/sync/
+  autosync-pull-only.ps1   Pull latest updates in background
+  autosync-24x7.ps1         Commit/pull/push loop (requires push access)
+  stop-autosync.ps1         Stop running auto-sync scripts
+notes/
+  new changes.txt           Working notes/changelog draft
+media/images/
+  logo.png              Hybrid logo (transparent)
+  isn-logo.png          ISN badge
+  word logo.png         Hero wordmark logo
+  kickbox-bg.jpg        Placeholder bg for membership cards
+media/videos/
+  Background.mp4        Hero background video
 
-REQUIRED: Background.mp4 (hero video) — place in root
+REQUIRED: media/videos/Background.mp4 (hero video)
