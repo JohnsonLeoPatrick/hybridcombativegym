@@ -1,0 +1,19 @@
+NEW CHANGES LOG
+
+Initialized: 2026-03-07 13:12:51 +08:00
+
+Format for each commit:
+- Date/Time: YYYY-MM-DD HH:MM:SS +TZ
+- Commit: <hash>
+- Changes:
+  - <change 1>
+  - <change 2>
+
+Entries:
+- Date/Time: 2026-03-07 13:14:16 +08:00
+- Commit: pending
+- Changes:
+  - Created this log file for commit tracking with exact timestamps.
+  - Restored subtle frosted blur for mobile nav bar and mobile menu.
+  - Set membership cards to 2-column layout on mobile (2 by 2).
+  - Added mobile membership card spacing and typography adjustments for cleaner fit.
