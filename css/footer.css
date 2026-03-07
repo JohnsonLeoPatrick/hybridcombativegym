@@ -29,6 +29,7 @@ footer{position:relative;z-index:5;background:var(--card-bg);border-top:1px soli
 
   /* Slight global mobile typography bump */
   body{font-size:17px}
+  .nav-mobile a{font-size:16px}
   .hbdg{font-size:12px}
   .lbl{font-size:13px}
   .bt{font-size:17px}

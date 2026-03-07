@@ -89,52 +89,18 @@ addEventListener('resize',()=>{
 
 // Hamburger
 const hbg=document.getElementById('hbg');
-let mobileMenuRevealTimer;
-
-const setMenuOpenState=(isOpen)=>{
-  if(!mob||!hbg) return;
-
-  clearTimeout(mobileMenuRevealTimer);
-
-  if(isOpen){
-    mob.classList.add('open');
-    document.body.classList.add('nav-glass-open');
-    hbg.classList.add('is-active');
-    hbg.setAttribute('aria-expanded','true');
-
-    // Stage 1: build the glass overlay, Stage 2: reveal links.
-    requestAnimationFrame(()=>mob.classList.add('glass-on'));
-    mobileMenuRevealTimer=setTimeout(()=>mob.classList.add('menu-visible'),170);
-    return;
-  }
-
-  mob.classList.remove('menu-visible');
-  mob.classList.remove('glass-on');
-  mob.classList.remove('open');
-  document.body.classList.remove('nav-glass-open');
-  hbg.classList.remove('is-active');
-  hbg.setAttribute('aria-expanded','false');
-};
-
 hbg?.setAttribute('aria-expanded','false');
 hbg?.addEventListener('click',()=>{
-  if(!mob) return;
-  setMenuOpenState(!mob.classList.contains('open'));
+  mob.classList.toggle('open');
+  const isOpen=mob.classList.contains('open');
+  hbg.classList.toggle('is-active',isOpen);
+  hbg.setAttribute('aria-expanded',String(isOpen));
 });
-
-mob?.addEventListener('click',(e)=>{
-  if(e.target===mob) setMenuOpenState(false);
-});
-
-addEventListener('keydown',(e)=>{
-  if(e.key==='Escape'&&mob?.classList.contains('open')) setMenuOpenState(false);
-});
-
-mob?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenuOpenState(false)));
-
-addEventListener('resize',()=>{
-  if(innerWidth>768&&mob?.classList.contains('open')) setMenuOpenState(false);
-});
+mob?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mob.classList.remove('open');
+  hbg?.classList.remove('is-active');
+  hbg?.setAttribute('aria-expanded','false');
+}));
 
 // Scroll reveals
 if(prefersReducedMotion){
