@@ -17,3 +17,13 @@ Entries:
   - Restored subtle frosted blur for mobile nav bar and mobile menu.
   - Set membership cards to 2-column layout on mobile (2 by 2).
   - Added mobile membership card spacing and typography adjustments for cleaner fit.
+
+- Date/Time: 2026-03-07 21:40:05 +08:00
+- Commit: caab768
+- Changes:
+  - Reorganized assets into media/images and media/videos directories.
+  - Moved sync scripts to automation/sync and notes into notes/.
+  - Updated all HTML/CSS/JS paths to new media locations.
+  - Removed hero video poster placeholder and improved initial video reveal.
+  - Added stronger scroll-based hero effects: curve, ambient glow, and bloom.
+  - Centered hero stats with the scroll indicator and changed "Shop Lots" to "Branches".
