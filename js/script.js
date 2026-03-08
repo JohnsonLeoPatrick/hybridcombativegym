@@ -22,8 +22,8 @@ const HERO_SMOOTHING=lowPowerMode?.18:.14;
 
 const renderHero=(p)=>{
   const yShift=(lowPowerMode?36:72)*p;
-  // If desktop, scale UP slightly, if mobile, maintain current logic
-  const bgScale=isMobileViewport? 1 : 1 + (p * 0.08); 
+  // Reduced scale increment per user request (make it smaller and smoother)
+  const bgScale=isMobileViewport? 1 : 1 + (p * 0.035); 
   const contentShift=(lowPowerMode?28:52)*p;
   const contentScale=1-p*(lowPowerMode?.05:.07);
   const contentFade=Math.max(0,1-p*(lowPowerMode?1.75:2.35));
@@ -35,20 +35,20 @@ const renderHero=(p)=>{
   const bottomInset=(lowPowerMode?2.8: (isMobileViewport? 6.5 : 4.5))*curveProgress;
   const ambientStrength=Math.max(0,(curveProgress-.08)/.92)*(lowPowerMode?.58:.9);
   
-  // Cut down blur intensities and alpha values significantly to reduce GPU load
-  const glowA=.1+curveProgress*.15;
-  const glowB=.05+curveProgress*.15;
-  const ring=.1+curveProgress*.15;
+  // Drastically cut down blur intensities and alpha values for MAXIMUM GPU performance and smoothness
+  const glowA=.04+curveProgress*.12;
+  const glowB=.02+curveProgress*.08;
+  const ring=.05+curveProgress*.1;
 
   hvw.style.transform='translate3d(0,'+yShift.toFixed(2)+'px,0) scale('+bgScale.toFixed(4)+')';
   hvw.style.clipPath='inset('+topInset.toFixed(2)+'% '+sideInset.toFixed(2)+'% '+bottomInset.toFixed(2)+'% '+sideInset.toFixed(2)+'% round '+radius.toFixed(1)+'px)';
   if(hvb){
     hvb.style.borderRadius=radius.toFixed(1)+'px';
     hvb.style.setProperty('--ambient',ambientStrength.toFixed(3));
-    // Cap blur to max 32px instead of 70px+
-    hvb.style.setProperty('--ambient-blur',(16+curveProgress*16).toFixed(1)+'px');
-    // Reduce box-shadow spread and sizes severely
-    hvb.style.boxShadow='0 0 0 1px rgba(245,200,0,'+ring.toFixed(3)+'),0 0 '+(16+curveProgress*24).toFixed(1)+'px rgba(245,200,0,'+glowA.toFixed(3)+'),0 0 '+(32+curveProgress*48).toFixed(1)+'px rgba(229,34,34,'+glowB.toFixed(3)+')';
+    // Cap blur to max 24px and decrease minimum to lighten the render thread
+    hvb.style.setProperty('--ambient-blur',(8+curveProgress*16).toFixed(1)+'px');
+    // Minimal shadow footprints for zero lag
+    hvb.style.boxShadow='0 0 0 1px rgba(245,200,0,'+ring.toFixed(3)+'),0 0 '+(12+curveProgress*12).toFixed(1)+'px rgba(245,200,0,'+glowA.toFixed(3)+'),0 0 '+(20+curveProgress*24).toFixed(1)+'px rgba(229,34,34,'+glowB.toFixed(3)+')';
   }
   hc.style.opacity=contentFade.toFixed(3);
   hc.style.transform='translate3d(0,'+(contentShift*-1).toFixed(2)+'px,0) scale('+contentScale.toFixed(4)+')';
@@ -151,10 +151,10 @@ mob?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
 
 // Scroll reveals
 if(prefersReducedMotion){
-  document.querySelectorAll('.sr').forEach(el=>el.classList.add('v'));
+  document.querySelectorAll('.sr, .sr-x').forEach(el=>el.classList.add('v'));
 }else{
   const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('v');obs.unobserve(el.target);}}),{threshold:.06,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+  document.querySelectorAll('.sr, .sr-x').forEach(el=>obs.observe(el));
 }
 
 // Smooth anchors
