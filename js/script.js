@@ -201,6 +201,14 @@ if (isHomePage) {
     .intro-progress-bar { width: 0%; height: 100%; background: var(--y); box-shadow: 0 0 10px var(--y); transition: width 2.4s cubic-bezier(0.22, 1, 0.36, 1); }
     .intro-hide .intro-progress-track { opacity: 0; transform: translateY(10px); }
     body.intro-active { overflow: hidden !important; }
+    
+    #hc > * { opacity: 0; filter: blur(12px); transform: translateY(20px); transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease; }
+    body.hero-animate #hc > * { opacity: 1; filter: blur(0); transform: translateY(0); }
+    body.hero-animate #hc > *:nth-child(1) { transition-delay: 0.1s; }
+    body.hero-animate #hc > *:nth-child(2) { transition-delay: 0.2s; }
+    body.hero-animate #hc > *:nth-child(3) { transition-delay: 0.3s; }
+    body.hero-animate #hc > *:nth-child(4) { transition-delay: 0.4s; }
+    body.hero-animate #hc > *:nth-child(5) { transition-delay: 0.5s; }
   `;
   document.head.appendChild(style);
 
@@ -269,6 +277,7 @@ function finishIntroAnim(overlay) {
   setTimeout(() => {
     if(overlay && overlay.parentNode) overlay.remove();
     document.body.classList.remove('intro-active');
+    document.body.classList.add('hero-animate');
   }, 200);
 }
 
