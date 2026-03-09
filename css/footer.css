@@ -23,7 +23,7 @@ footer{position:relative;z-index:5;background:var(--card-bg);border-top:1px soli
   .mb{grid-template-columns:1fr}
   nav.scrolled{width:min(360px,85vw);height:44px;padding:0 16px}
   .logo-icon{height:28px}
-  #hero{justify-content:flex-start;padding-top:15vh}.hc{margin-top:0;padding-top:0}
+  #hero{justify-content:center;padding-top:0}.hc{margin-top:0;padding-top:0}
   .isn-inner{grid-template-columns:1fr;gap:32px;text-align:center}.isn-logo-img{max-width:320px}
   .coaches-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.coach-card{min-height:460px}
 
@@ -41,4 +41,4 @@ footer{position:relative;z-index:5;background:var(--card-bg);border-top:1px soli
   .coach-points li{font-size:13px}
   .tki{font-size:13px}
 }
-@media(max-width:480px){.sg{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#hero{padding-top:12vh}.mag,.gc{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wg{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}.coaches-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.coach-card{min-height:420px}.coach-body{padding:14px 12px 12px}}
+@media(max-width:480px){.sg{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#hero{padding-top:0}.mag,.gc{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wg{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}.coaches-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.coach-card{min-height:420px}.coach-body{padding:14px 12px 12px}}
