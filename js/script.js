@@ -185,87 +185,89 @@ const goWithTransition=(href)=>{
 };
 
 // First visit intro: keep overlay while hero video warms up in background.
-const style = document.createElement('style');
-style.innerHTML = `
-  .intro-loader { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: auto; }
-  .intro-loader-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(circle at center, #141414, #000); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
-  .intro-logo-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 40px; }
-  .intro-logo { width: min(24vw, 130px); height: auto; filter: drop-shadow(0 0 16px rgba(245,200,0,0.26)) drop-shadow(0 0 30px rgba(245,200,0,0.16)); transform-origin: center center; will-change: transform; transition: opacity 0.3s; animation: logoPulse 2s infinite ease-in-out; }
-  @keyframes logoPulse { 0%, 100% { opacity: 0.7; transform: scale(0.98); } 50% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 25px rgba(245,200,0,0.4)) drop-shadow(0 0 40px rgba(245,200,0,0.2)); } }
-  @media(max-width:768px) { .intro-logo { width: min(34vw, 120px); } }
-  .intro-progress-track { width: 180px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(0); }
-  .intro-progress-bar { width: 0%; height: 100%; background: var(--y); box-shadow: 0 0 10px var(--y); transition: width 2.4s cubic-bezier(0.22, 1, 0.36, 1); }
-  .intro-hide .intro-progress-track { opacity: 0; transform: translateY(10px); }
-  body.intro-active { overflow: hidden !important; }
-`;
-document.head.appendChild(style);
+const isHomePage = location.pathname === '/' || location.pathname.endsWith('index.html') || location.pathname.endsWith('HYBRID%20GYM/');
 
-const introOverlay = document.createElement('div');
-introOverlay.className = 'intro-loader';
-introOverlay.innerHTML = `
-  <div class="intro-loader-bg"></div>
-  <div class="intro-logo-wrap">
-    <img class="intro-logo" src="media/images/logo.png" alt="Hybrid">
-    <div class="intro-progress-track"><div class="intro-progress-bar"></div></div>
-  </div>
-`;
-document.body.appendChild(introOverlay);
-document.body.classList.add('intro-active');
+if (isHomePage) {
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .nav-logo img { opacity: 0; transition: opacity 0.3s ease; }
+    .intro-loader { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: auto; }
+    .intro-loader-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(circle at center, #141414, #000); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+    .intro-logo-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+    .intro-logo { width: min(24vw, 130px); height: auto; filter: drop-shadow(0 0 16px rgba(245,200,0,0.26)) drop-shadow(0 0 30px rgba(245,200,0,0.16)); transform-origin: center center; will-change: transform; transition: opacity 0.3s; animation: logoPulse 2s infinite ease-in-out; }
+    @keyframes logoPulse { 0%, 100% { opacity: 0.7; transform: scale(0.98); } 50% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 25px rgba(245,200,0,0.4)) drop-shadow(0 0 40px rgba(245,200,0,0.2)); } }
+    @media(max-width:768px) { .intro-logo { width: min(34vw, 120px); } }
+    .intro-progress-track { width: 180px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(0); }
+    .intro-progress-bar { width: 0%; height: 100%; background: var(--y); box-shadow: 0 0 10px var(--y); transition: width 2.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    .intro-hide .intro-progress-track { opacity: 0; transform: translateY(10px); }
+    body.intro-active { overflow: hidden !important; }
+  `;
+  document.head.appendChild(style);
 
-// Ensure opacity fade doesn't flash
-const introLogo = introOverlay.querySelector('.intro-logo');
-const introBar = introOverlay.querySelector('.intro-progress-bar');
-const loaderBg = introOverlay.querySelector('.intro-loader-bg');
-const introWrap = introOverlay.querySelector('.intro-logo-wrap');
+  const introOverlay = document.createElement('div');
+  introOverlay.className = 'intro-loader';
+  introOverlay.innerHTML = `
+    <div class="intro-loader-bg"></div>
+    <div class="intro-logo-wrap">
+      <img class="intro-logo" src="media/images/logo.png" alt="Hybrid">
+      <div class="intro-progress-track"><div class="intro-progress-bar"></div></div>
+    </div>
+  `;
+  document.body.appendChild(introOverlay);
+  document.body.classList.add('intro-active');
 
-requestAnimationFrame(() => {
-  introBar.style.width = '100%';
-});
+  const introLogo = introOverlay.querySelector('.intro-logo');
+  const introBar = introOverlay.querySelector('.intro-progress-bar');
+  const loaderBg = introOverlay.querySelector('.intro-loader-bg');
 
-setTimeout(() => {
-  const tarLogo = document.querySelector('.nav-logo img');
-  introOverlay.classList.add('intro-hide'); // Fades out the bar
-  introLogo.style.animation = 'none'; // Stop pulse for exact measurement
-  
-  if (tarLogo && introLogo) {
-    const tarRect = tarLogo.getBoundingClientRect();
-    const srcRect = introLogo.getBoundingClientRect();
-    
-    // If target isn't visible/rendered properly, fallback
-    if (tarRect.width === 0) {
-      loaderBg.style.opacity = '0';
-      introLogo.style.opacity = '0';
-      finishIntroAnim();
-      return;
-    }
+  requestAnimationFrame(() => {
+    introBar.style.width = '100%';
+  });
 
-    const scale = tarRect.width / srcRect.width;
-    const deltaX = tarRect.left + (tarRect.width / 2) - (srcRect.left + (srcRect.width / 2));
-    const deltaY = tarRect.top + (tarRect.height / 2) - (srcRect.top + (srcRect.height / 2));
-    
-    // Sync easing with the background fade
-    introLogo.style.transition = 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease 0.3s';
-    introLogo.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scale})`;
-    
-    // Start background fade shortly after logo starts moving
-    setTimeout(() => {
-      loaderBg.style.opacity = '0';
-    }, 150);
-    
-    // Remove element and reset body after move is complete
-    setTimeout(() => {
-      introLogo.style.opacity = '0'; // Seamless handoff to actual logo
-      finishIntroAnim();
-    }, 850);
-  } else {
-    loaderBg.style.opacity = '0';
-    finishIntroAnim();
-  }
-}, 2400); // 2.4s fake load
-
-function finishIntroAnim() {
   setTimeout(() => {
-    if(introOverlay.parentNode) introOverlay.remove();
+    const tarLogo = document.querySelector('.nav-logo img');
+    introOverlay.classList.add('intro-hide'); 
+    introLogo.style.animation = 'none'; 
+
+    if (tarLogo && introLogo) {
+      const tarRect = tarLogo.getBoundingClientRect();
+      const srcRect = introLogo.getBoundingClientRect();
+
+      if (tarRect.width === 0) {
+        loaderBg.style.opacity = '0';
+        introLogo.style.opacity = '0';
+        if (tarLogo) tarLogo.style.opacity = '1';
+        finishIntroAnim(introOverlay);
+        return;
+      }
+
+      const scale = tarRect.width / srcRect.width;
+      const deltaX = tarRect.left + (tarRect.width / 2) - (srcRect.left + (srcRect.width / 2));
+      const deltaY = tarRect.top + (tarRect.height / 2) - (srcRect.top + (srcRect.height / 2));
+      
+      introLogo.style.transition = 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease 0.3s';
+      introLogo.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scale})`;
+      
+      setTimeout(() => {
+        loaderBg.style.opacity = '0';
+      }, 150);
+
+      setTimeout(() => {
+        introLogo.style.opacity = '0'; 
+        tarLogo.style.opacity = '1'; // Show actual nav logo directly as it lands
+        finishIntroAnim(introOverlay);
+      }, 850);
+    } else {
+      loaderBg.style.opacity = '0';
+      if (tarLogo) tarLogo.style.opacity = '1';
+      finishIntroAnim(introOverlay);
+    }
+  }, 2400);
+}
+
+function finishIntroAnim(overlay) {
+  setTimeout(() => {
+    if(overlay && overlay.parentNode) overlay.remove();
     document.body.classList.remove('intro-active');
   }, 200);
 }
