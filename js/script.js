@@ -119,6 +119,7 @@ if(hvb&&heroVideo){
 
   heroVideo.addEventListener('loadedmetadata',()=>{
     try{
+      heroVideo.playbackRate = 0.7;
       if(heroVideo.currentTime<0.18&&heroVideo.duration>0.3){
         heroVideo.currentTime=0.18;
       }
