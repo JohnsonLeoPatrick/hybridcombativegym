@@ -202,13 +202,13 @@ if (isHomePage) {
     .intro-hide .intro-progress-track { opacity: 0; transform: translateY(10px); }
     body.intro-active { overflow: hidden !important; }
     
-    #hc > * { opacity: 0; filter: blur(12px); transform: translateY(20px); transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease; }
+    #hc > * { opacity: 0; filter: blur(16px); transform: translateY(35px); transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), filter 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity, filter; }
     body.hero-animate #hc > * { opacity: 1; filter: blur(0); transform: translateY(0); }
     body.hero-animate #hc > *:nth-child(1) { transition-delay: 0.1s; }
-    body.hero-animate #hc > *:nth-child(2) { transition-delay: 0.2s; }
-    body.hero-animate #hc > *:nth-child(3) { transition-delay: 0.3s; }
-    body.hero-animate #hc > *:nth-child(4) { transition-delay: 0.4s; }
-    body.hero-animate #hc > *:nth-child(5) { transition-delay: 0.5s; }
+    body.hero-animate #hc > *:nth-child(2) { transition-delay: 0.25s; }
+    body.hero-animate #hc > *:nth-child(3) { transition-delay: 0.4s; }
+    body.hero-animate #hc > *:nth-child(4) { transition-delay: 0.55s; }
+    body.hero-animate #hc > *:nth-child(5) { transition-delay: 0.7s; }
   `;
   document.head.appendChild(style);
 
@@ -258,6 +258,7 @@ if (isHomePage) {
       
       setTimeout(() => {
         loaderBg.style.opacity = '0';
+        document.body.classList.add('hero-animate');
       }, 150);
 
       setTimeout(() => {
@@ -267,6 +268,7 @@ if (isHomePage) {
       }, 850);
     } else {
       loaderBg.style.opacity = '0';
+      document.body.classList.add('hero-animate');
       if (tarLogo) tarLogo.style.opacity = '1';
       finishIntroAnim(introOverlay);
     }
@@ -277,7 +279,6 @@ function finishIntroAnim(overlay) {
   setTimeout(() => {
     if(overlay && overlay.parentNode) overlay.remove();
     document.body.classList.remove('intro-active');
-    document.body.classList.add('hero-animate');
   }, 200);
 }
 
