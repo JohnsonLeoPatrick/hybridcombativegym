@@ -30,4 +30,4 @@ media/videos/
   Background.mp4        Hero background video
 
 REQUIRED: media/videos/Background.mp4 (hero video)
-hello 
+hello asdasd
