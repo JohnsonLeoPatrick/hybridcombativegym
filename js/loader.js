@@ -2,7 +2,7 @@
 const isHomePage = location.pathname === '/' || location.pathname.endsWith('index.html') || location.pathname.endsWith('HYBRID%20GYM/');                        
 if (isHomePage) {
   const style = document.createElement('style');
-  style.innerHTML = `
+  style.textContent = `
     .nav-logo img { opacity: 0; transition: opacity 0.3s ease; }
     .intro-loader { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: auto; }
     .intro-loader-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(circle at center, #141414, #000); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -27,13 +27,13 @@ if (isHomePage) {
 
   const introOverlay = document.createElement('div');
   introOverlay.className = 'intro-loader';
-  introOverlay.innerHTML = `
-    <div class="intro-loader-bg"></div>
-    <div class="intro-logo-wrap">
-      <img class="intro-logo" src="media/images/logo.png" alt="Hybrid">
-      <div class="intro-progress-track"><div class="intro-progress-bar"></div></div>
-    </div>
-  `;
+  const ldrBg = document.createElement('div'); ldrBg.className = 'intro-loader-bg';
+  const ldrWrap = document.createElement('div'); ldrWrap.className = 'intro-logo-wrap';
+  const ldrImg = document.createElement('img'); ldrImg.className = 'intro-logo'; ldrImg.src = 'media/images/logo.png'; ldrImg.alt = 'Hybrid';
+  const ldrTrack = document.createElement('div'); ldrTrack.className = 'intro-progress-track';
+  const ldrBar = document.createElement('div'); ldrBar.className = 'intro-progress-bar';
+  ldrTrack.appendChild(ldrBar); ldrWrap.appendChild(ldrImg); ldrWrap.appendChild(ldrTrack);
+  introOverlay.appendChild(ldrBg); introOverlay.appendChild(ldrWrap);
   document.body.appendChild(introOverlay);
   document.body.classList.add('intro-active');
 
@@ -58,6 +58,8 @@ if (isHomePage) {
         loaderBg.style.opacity = '0';
         introLogo.style.opacity = '0';
         if (tarLogo) tarLogo.style.opacity = '1';
+        const heroVid = document.getElementById('heroVid');
+        if (heroVid) heroVid.play();
         finishIntroAnim(introOverlay);
         return;
       }
@@ -72,6 +74,8 @@ if (isHomePage) {
       setTimeout(() => {
         loaderBg.style.opacity = '0';
         document.body.classList.add('hero-animate');
+        const heroVid = document.getElementById('heroVid');
+        if (heroVid) heroVid.play();
       }, 50);
 
       setTimeout(() => {
@@ -82,6 +86,8 @@ if (isHomePage) {
     } else {
       loaderBg.style.opacity = '0';
       document.body.classList.add('hero-animate');
+      const heroVid = document.getElementById('heroVid');
+      if (heroVid) heroVid.play();
       if (tarLogo) tarLogo.style.opacity = '1';
       finishIntroAnim(introOverlay);
     }

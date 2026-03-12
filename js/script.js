@@ -168,7 +168,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 const transitionOverlay=document.createElement('div');
 transitionOverlay.className='page-transition';
 transitionOverlay.setAttribute('aria-hidden','true');
-transitionOverlay.innerHTML='<img class="page-transition-logo" src="media/images/logo.png" alt="">';
+const trImg=document.createElement('img');trImg.className='page-transition-logo';trImg.src='media/images/logo.png';trImg.alt='';transitionOverlay.appendChild(trImg);
 document.body.appendChild(transitionOverlay);
 
 const shouldTransition=(href)=>{
