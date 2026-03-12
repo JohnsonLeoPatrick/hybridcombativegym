@@ -1,33 +1,33 @@
 /* HYBRID — Sections: About, ISN, Programs, Who, Why, Coaches */
 
 /* Shared */
-.sec{position:relative;z-index:5;padding:120px clamp(20px,5vw,80px);max-width:1200px;margin:0 auto}
+.sec{position:relative;z-index:5;padding:60px clamp(20px,5vw,80px) 120px;max-width:1200px;margin:0 auto}
 .secw{position:relative;z-index:5;padding:120px 0;background:linear-gradient(180deg,transparent 0%,rgba(245,200,0,.02) 50%,transparent 100%)}
 .secwi{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,80px)}
-.lbl{font-family:var(--fb);font-size:12px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--y);margin-bottom:12px}
+.lbl{font-family:var(--fb);font-size:13px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--y);margin-bottom:12px}
 .st{font-family:var(--fd);font-size:clamp(36px,5vw,64px);font-weight:800;line-height:.95;letter-spacing:-.03em;color:#fff;margin-bottom:20px}
 .st .a{color:var(--y)}
-.bt{font-size:16px;font-weight:300;color:var(--fg2);line-height:1.8}
+.bt{font-size:17px;font-weight:300;color:var(--fg2);line-height:1.8}
 
 /* About */
 .ag{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,100px);align-items:start;margin-top:60px}
 .acs{display:flex;flex-direction:column;gap:14px}
 .ac{padding:26px 26px 26px 28px;border-radius:0 18px 18px 0;background:var(--card-bg);border:1px solid var(--card-border);transition:all .4s var(--ease)}
 .ac:hover{background:rgba(245,200,0,.04);transform:translateX(6px);box-shadow:0 8px 30px rgba(0,0,0,.1)}
-.ac h3{font-family:var(--fd);font-size:16px;font-weight:700;color:#fff;margin-bottom:5px}
-.ac p{font-size:13px;color:var(--fg3);line-height:1.7}
+.ac h3{font-family:var(--fd);font-size:18px;font-weight:700;color:#fff;margin-bottom:5px}
+.ac p{font-size:15px;color:var(--fg3);line-height:1.7}
 .isnc{margin-top:28px;padding:24px;border-radius:18px;background:rgba(245,200,0,.04);border:1px solid rgba(245,200,0,.12)}
-.isnc h4{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--y);margin-bottom:8px}
-.isnc p{font-size:14px;color:var(--fg2);line-height:1.75}
+.isnc h4{font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--y);margin-bottom:8px}
+.isnc p{font-size:15px;color:var(--fg2);line-height:1.75}
 .isnc strong{color:#fff;font-weight:600}
 
 /* ISN Recognition */
-.isn-sec{position:relative;z-index:5;padding:80px 0;background:rgba(245,200,0,.015);border-top:1px solid rgba(245,200,0,.06);border-bottom:1px solid rgba(245,200,0,.06)}
+.isn-sec{position:relative;z-index:5;padding:80px 0 40px;background:rgba(245,200,0,.015);border-top:1px solid rgba(245,200,0,.06);border-bottom:1px solid rgba(245,200,0,.06)}
 .isn-inner{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,100px);align-items:center}
 .isn-logo-wrap{display:flex;align-items:center;justify-content:center}
 .isn-logo-img{width:100%;max-width:480px;height:auto;filter:drop-shadow(0 0 30px rgba(245,200,0,.2));animation:isnGlow 3.5s ease-in-out infinite}
 @keyframes isnGlow{0%,100%{filter:drop-shadow(0 0 15px rgba(245,200,0,.15))}50%{filter:drop-shadow(0 0 40px rgba(245,200,0,.3))}}
-.isn-text p{font-size:15px;color:var(--fg2);line-height:1.85;margin-bottom:14px}
+.isn-text p{font-size:16px;color:var(--fg2);line-height:1.85;margin-bottom:14px}
 .isn-text p strong{color:#fff;font-weight:600}
 
 /* Programs */
@@ -35,18 +35,18 @@
 .pc{padding:36px 28px;border-radius:22px;position:relative;overflow:hidden;background:var(--card-bg);border:1px solid var(--card-border);transition:all .4s var(--ease)}
 .pc:hover{transform:translateY(-6px);border-color:rgba(245,200,0,.15);box-shadow:0 20px 60px rgba(0,0,0,.15)}
 .pn{font-family:var(--fd);font-size:72px;font-weight:900;color:var(--fg4);position:absolute;top:6px;right:14px;line-height:1}
-.pc h3{font-family:var(--fd);font-size:24px;font-weight:700;color:var(--y);margin-bottom:10px}
-.pc p{font-size:14px;color:var(--fg3);line-height:1.7;margin-bottom:18px}
+.pc h3{font-family:var(--fd);font-size:26px;font-weight:700;color:var(--y);margin-bottom:10px}
+.pc p{font-size:15px;color:var(--fg3);line-height:1.7;margin-bottom:18px}
 .pts{display:flex;flex-wrap:wrap;gap:5px}
-.pt{font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:980px;background:rgba(245,200,0,.06);border:1px solid rgba(245,200,0,.1);color:rgba(245,200,0,.7)}
+.pt{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:980px;background:rgba(245,200,0,.06);border:1px solid rgba(245,200,0,.1);color:rgba(245,200,0,.8)}
 
 /* Who We Serve */
 .sg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
 .sc{padding:36px 22px;text-align:center;border-radius:22px;background:var(--card-bg);border:1px solid var(--card-border);transition:all .35s var(--ease)}
 .sc:hover{transform:translateY(-4px);border-color:rgba(245,200,0,.15);box-shadow:0 12px 40px rgba(0,0,0,.1)}
 .si{width:44px;height:44px;margin:0 auto 18px}
-.sc h3{font-family:var(--fd);font-size:17px;font-weight:700;color:#fff;margin-bottom:6px}
-.sc p{font-size:13px;color:var(--fg3);line-height:1.7}
+.sc h3{font-family:var(--fd);font-size:19px;font-weight:700;color:#fff;margin-bottom:6px}
+.sc p{font-size:14px;color:var(--fg3);line-height:1.7}
 
 /* Why Hybrid */
 .ws{background:var(--card-bg);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border)}
@@ -54,8 +54,8 @@
 .wi{padding:clamp(26px,3vw,40px);background:var(--bg);transition:background .3s;position:relative}
 .wi:hover{background:rgba(245,200,0,.02)}
 .wn{font-family:var(--fd);font-size:44px;font-weight:900;color:var(--fg4);position:absolute;top:8px;right:12px}
-.wi h3{font-family:var(--fd);font-size:16px;font-weight:700;color:#fff;margin-bottom:6px}
-.wi p{font-size:13px;color:var(--fg3);line-height:1.75}
+.wi h3{font-family:var(--fd);font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}
+.wi p{font-size:14px;color:var(--fg3);line-height:1.75}
 
 /* Coaches — full photo card with bottom readable overlay */
 .coaches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}

@@ -153,9 +153,12 @@ mob?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
 // Scroll reveals
 if(prefersReducedMotion){
   document.querySelectorAll('.sr, .sr-x').forEach(el=>el.classList.add('v'));
+  document.querySelectorAll('.gym-box').forEach(el=>el.classList.add('in-view'));
 }else{
   const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('v');obs.unobserve(el.target);}}),{threshold:.06,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.sr, .sr-x').forEach(el=>obs.observe(el));
+  const boxObs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('in-view');boxObs.unobserve(el.target);}}),{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.gym-box').forEach(el=>boxObs.observe(el));
 }
 
 // Smooth anchors
