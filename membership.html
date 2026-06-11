@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Membership - Hybrid Combative Academy Gym</title>
+<meta name="description" content="Join Hybrid Combative Academy & Gym. Affordable gym membership from RM70/month. Martial arts classes from RM170/month. No contracts, no registration fees.">
+<meta name="theme-color" content="#000000">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" type="image/png" href="media/images/logo.png">
+<link rel="apple-touch-icon" href="media/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/membership.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img class="logo-icon" src="media/images/logo.png" alt="Hybrid"></a>
+  <ul class="nav-links"><li><a href="index.html">About</a></li><li><a href="programs.html">Hybrid Performance</a></li><li><a href="coaches.html">Performance Coaches</a></li><li><a href="membership.html">Membership</a></li><li><a href="contact.html">Contact</a></li></ul>  <button class="nav-hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mob"><a href="index.html">About</a><a href="programs.html">Hybrid Performance</a><a href="coaches.html">Performance Coaches</a><a href="membership.html">Membership</a><a href="contact.html">Contact</a></div>
+
+<style>
+  .membership-intro .bt{max-width:520px}
+  .membership-top-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.82fr);gap:28px;align-items:start;margin-top:28px;margin-bottom:42px}
+  .membership-reel-card{position:relative;max-width:360px;width:100%;margin:0 0 0 auto;padding:14px;border-radius:28px;background:linear-gradient(155deg,rgba(255,255,255,.08),rgba(255,255,255,.025) 42%,rgba(255,255,255,.01) 100%),rgba(12,12,12,.74);border:1px solid rgba(255,255,255,.08);box-shadow:0 22px 54px rgba(0,0,0,.24);backdrop-filter:blur(16px) saturate(1.12);-webkit-backdrop-filter:blur(16px) saturate(1.12);overflow:hidden}
+  .membership-reel-card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(145deg,rgba(245,200,0,.18),rgba(255,255,255,.04),rgba(245,200,0,.06));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;pointer-events:none}
+  .membership-reel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .membership-reel-badge{display:inline-flex;align-items:center;gap:10px;color:#fff;font-family:var(--fd);font-size:14px;font-weight:700}
+  .membership-reel-dot{width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe278,#f5c800 62%,#b88600 100%);box-shadow:0 0 14px rgba(245,200,0,.32);flex-shrink:0}
+  .membership-reel-pill{display:inline-flex;align-items:center;justify-content:center;padding:7px 12px;border-radius:999px;background:rgba(245,200,0,.08);border:1px solid rgba(245,200,0,.14);color:rgba(255,231,120,.92);font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+  .membership-reel-shell{position:relative;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0)),#090909;border:1px solid rgba(255,255,255,.05)}
+  .membership-reel-video-wrap{position:relative;aspect-ratio:9/16;min-height:290px;background:#050505;overflow:hidden}
+  .membership-reel-video-wrap::before{content:"";position:absolute;inset:10px;border-radius:18px;border:1px solid rgba(255,255,255,.08);pointer-events:none;z-index:2}
+  .membership-reel-video-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0) 22%),linear-gradient(0deg,rgba(0,0,0,.62),rgba(0,0,0,0) 42%);pointer-events:none;z-index:1}
+  .membership-reel-video{display:block;width:100%;height:100%;object-fit:cover;background:#000}
+  .membership-reel-mute{position:absolute;right:16px;bottom:48px;z-index:3;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,.56);border:1px solid rgba(255,255,255,.12);box-shadow:0 14px 30px rgba(0,0,0,.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),border-color .25s var(--ease)}
+  .membership-reel-mute:hover{transform:scale(1.05);background:rgba(18,18,18,.68);border-color:rgba(245,200,0,.28)}
+  .membership-reel-mute:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(245,200,0,.2),0 14px 30px rgba(0,0,0,.28)}
+  .membership-reel-mute svg{width:22px;height:22px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .membership-reel-mute .icon-unmuted{display:none}
+  .membership-reel-mute.is-unmuted .icon-muted{display:none}
+  .membership-reel-mute.is-unmuted .icon-unmuted{display:block}
+  .membership-reel-progress-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    padding: 16px 20px 18px;
+    cursor: pointer;
+  }
+  .membership-reel-progress-bar {
+    width: 100%;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.22);
+    overflow: hidden;
+    position: relative;
+    transition: height 0.2s ease;
+  }
+  .membership-reel-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--y);
+    border-radius: inherit;
+  }
+  .membership-reel-progress-container:hover .membership-reel-progress-bar {
+    height: 6px;
+  }
+  .membership-reel-shell.is-playing .membership-reel-progress-container {
+    opacity: .18;
+    transform: translateY(2px);
+    transition: opacity .35s ease, transform .25s ease;
+  }
+  .membership-reel-shell:hover .membership-reel-progress-container,
+  .membership-reel-shell:focus-within .membership-reel-progress-container,
+  .membership-reel-shell.is-scrubbing .membership-reel-progress-container {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .membership-reel-overlay{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+  .membership-reel-copy a{color:var(--y);text-decoration:none}
+  .membership-reel-copy a:hover{color:#ffe278}
+  .membership-reel-kicker{display:inline-flex;align-items:center;align-self:flex-start;gap:8px;font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--y);background:rgba(245,200,0,0.06);border:1px solid rgba(245,200,0,0.18);padding:6px 14px;border-radius:30px;margin-bottom:4px;transition:all 0.25s cubic-bezier(0.2,0.8,0.2,1);box-shadow:0 4px 12px rgba(0,0,0,0.18)}
+  .membership-reel-kicker:hover{background:rgba(245,200,0,0.14);border-color:rgba(245,200,0,0.45);color:#fff;transform:translateY(-1.5px);box-shadow:0 6px 16px rgba(245,200,0,0.22)}
+  .membership-reel-kicker span{width:7px;height:7px;border-radius:50%;background:#f5c800;box-shadow:0 0 10px rgba(245,200,0,.32);flex-shrink:0}
+  .membership-reel-title{font-family:var(--fd);font-size:clamp(17px,2.1vw,22px);font-weight:800;line-height:1.02;color:#fff;text-shadow:0 10px 28px rgba(0,0,0,.34);white-space:nowrap;width:100%}
+  .membership-reel-copy{color:rgba(255,255,255,.72);font-size:12px;line-height:1.45;max-width:26ch}
+  .membership-reel-cta{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .membership-reel-note{margin-top:10px;text-align:center;color:var(--fg3);font-size:12px;line-height:1.45}
+  .membership-reel-note a{color:var(--y);text-decoration:none}
+  .membership-reel-note a:hover{color:#ffe278}
+  @media(max-width:980px){
+    .membership-top-grid{grid-template-columns:1fr;gap:22px}
+    .membership-pricing{order:2}
+    .membership-reel-card{max-width:430px;margin:0 auto}
+    .membership-reel-card{order:1}
+  }
+  @media(max-width:768px){
+    .membership-intro .bt{max-width:100%}
+    .membership-top-grid{margin-top:20px;margin-bottom:28px}
+    .membership-reel-card{max-width:100%;padding:12px;border-radius:26px}
+    .membership-reel-head{flex-direction:column;align-items:flex-start}
+    .membership-reel-shell{border-radius:18px}
+    .membership-reel-video-wrap{min-height:320px}
+    .membership-reel-mute{right:12px;bottom:40px;width:42px;height:42px}
+    .membership-reel-mute svg{width:18px;height:18px}
+    .membership-reel-progress-container{padding:12px 16px 14px}
+    .membership-reel-title{font-size:clamp(18px,7vw,24px)}
+    .membership-reel-copy,.membership-reel-note{font-size:11px}
+  }
+  @media(max-width:420px){
+    .membership-reel-card{padding:11px}
+    .membership-reel-video-wrap{min-height:286px}
+  }
+</style>
+
+<!-- MEMBERSHIP -->
+<section id="membership" class="sec" style="padding-top:140px">
+  <div class="membership-intro sr"><h1 class="st">Join the<br><span class="a">Hybrid Clan</span></h1><p class="bt">No contracts. No tricks. No signup fees. Just straightforward monthly pricing. Train hard, pay fair.</p></div>
+  <div class="membership-top-grid">
+    <div class="membership-pricing">
+      <div class="ml sr">Gym Membership</div>
+      <div class="gc sr">
+    <div class="mc"><div class="mtp">Adult Members</div><div class="mpr"><span class="mrm">RM</span><span class="mam">90</span></div><div class="mpe">per month</div><ul class="mf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Cheapest in KL Area</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>No Registration Fee</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>No Contract</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited Gym Access</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>The Mat @ Hybrid</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20as%20an%20Adult%20Gym%20Member." class="btn-bloom btn-sm" style="align-self:flex-start">Sign Up</a></div>
+    <div class="mc"><div class="mtp">Student Members</div><div class="mpr"><span class="mrm">RM</span><span class="mam">70</span></div><div class="mpe">per month</div><ul class="mf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Cheapest in KL Area</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>No Registration Fee</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>No Contract</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited Gym Access</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>The Mat @ Hybrid</li></ul><div class="mpe" style="margin-bottom:14px;margin-top:14px">17 years old and below only</div><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20as%20a%20Student%20Gym%20Member." class="btn-bloom btn-sm" style="align-self:flex-start">Sign Up</a></div>
+      </div>
+      <div class="walkin-panel sr sd1">
+        <div class="walkin-head">
+          <div>
+            <div class="walkin-kicker">Day Passes</div>
+            <h2>Walk-In Fees</h2>
+          </div>
+          <span>No registration. No contract.</span>
+        </div>
+        <div class="walkin-grid">
+          <div class="walkin-card">
+            <div class="walkin-type">Student</div>
+            <div class="walkin-note">17 years old and below only</div>
+            <div class="walkin-list">
+              <div class="walkin-row"><span>Gym</span><strong>RM13</strong></div>
+              <div class="walkin-row"><span>Mat</span><strong>RM17</strong></div>
+              <div class="walkin-row is-best"><span>Gym &amp; Mat</span><strong>RM19</strong></div>
+            </div>
+          </div>
+          <div class="walkin-card">
+            <div class="walkin-type">Adult</div>
+            <div class="walkin-note">Single visit access</div>
+            <div class="walkin-list">
+              <div class="walkin-row"><span>Gym</span><strong>RM15</strong></div>
+              <div class="walkin-row"><span>Mat</span><strong>RM23</strong></div>
+              <div class="walkin-row is-best"><span>Gym &amp; Mat</span><strong>RM25</strong></div>
+            </div>
+          </div>
+        </div>
+        <a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27d%20like%20to%20ask%20about%20walk-in%20fees." class="btn-glass btn-sm walkin-cta">Ask About Walk-Ins</a>
+      </div>
+    </div>
+    <div class="membership-reel-card sr sd2">
+      <div class="membership-reel-shell">
+        <div class="membership-reel-video-wrap">
+          <video class="membership-reel-video" muted loop playsinline preload="none" poster="media/images/logo.png">
+            <source data-src="media/videos/90 ringgit membership.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button class="membership-reel-mute" type="button" aria-label="Unmute membership video" aria-pressed="false">
+            <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+            <svg class="icon-unmuted" viewBox="0 0 24 24" aria-hidden="true"><polygon points="11 5 6 9 3 9 3 15 6 15 11 19 11 5"></polygon><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+          </button>
+          <div class="membership-reel-progress-container">
+            <div class="membership-reel-progress-bar">
+              <div class="membership-reel-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:16px 16px 18px">
+          <div class="membership-reel-overlay">
+            <a href="https://www.instagram.com/reel/DKmZRwJSEir/?igsh=MWNkb2ZoYmJ3M3Breg==" target="_blank" rel="noopener noreferrer" class="membership-reel-kicker" style="text-decoration:none">
+              <span aria-hidden="true"></span>Watch On Instagram
+            </a>
+            <div class="membership-reel-title">Strength At Any Age</div>
+            <div class="membership-reel-copy" style="margin-bottom: 12px;">Progress has no age limit when the environment is right.</div>
+            <a class="membership-reel-cta" href="https://www.instagram.com/reel/DKmZRwJSEir/?igsh=MWNkb2ZoYmJ3M3Breg==" target="_blank" rel="noopener noreferrer">Open Reel</a>
+          </div>
+        </div>
+      </div>
+      <p class="membership-reel-note">See more from <a href="https://www.instagram.com/hybridcombativegym/" target="_blank" rel="noopener noreferrer">@hybridcombativegym</a>.</p>
+    </div>
+  </div>
+  <div class="ml sr">Martial Arts Classes</div>
+  <div class="mag sr">
+    <div class="mac"><div class="mah"><h3>Boxing</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Monday 8:00pm</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20the%20Boxing%20classes." class="btn-glass btn-sm">Sign Up</a></div></div>
+    <div class="mac"><div class="mah"><h3>Karate</h3></div><span class="mas">Adults &amp; Teens</span><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Tuesday 7:00pm</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20the%20Karate%20classes." class="btn-glass btn-sm">Sign Up</a></div></div>
+    <div class="mac"><div class="mah"><h3>Jeet Kune Do</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">190</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Tuesday 6:00pm</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20the%20Jeet%20Kune%20Do%20classes." class="btn-glass btn-sm">Sign Up</a></div></div>
+    <div class="mac"><div class="mah"><h3>Kickboxing</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Tuesday 8:30pm</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Saturday 10:15am</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20the%20Kickboxing%20classes." class="btn-glass btn-sm">Sign Up</a></div></div>
+    <div class="mac"><div class="mah"><h3>MMA</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Wednesday 6:00pm</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20the%20MMA%20classes." class="btn-glass btn-sm">Sign Up</a></div></div>
+    <div class="mac"><div class="mah"><h3>Tae Kwon Do</h3></div><span class="mas">Kids &amp; Adults</span><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Thursday 5:00pm (Kids)</li><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Saturday 10:15am (Adults)</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20the%20Tae%20Kwon%20Do%20classes." class="btn-glass btn-sm">Sign Up</a></div></div>
+    <div class="mac"><div class="mah"><h3>Muay Thai</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Friday 7:30pm</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20the%20Muay%20Thai%20classes." class="btn-glass btn-sm">Sign Up</a></div></div>
+    <div class="mac"><div class="mah"><h3>Brazilian Jiu-Jitsu</h3></div><div class="mab"><div class="mapr"><span class="marm">RM</span><span class="maam">170</span></div><div class="mape">per month</div><ul class="maf"><li><svg class="ck" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#f5c800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sunday 9:00am</li></ul><a href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20interested%20in%20joining%20the%20Brazilian%20Jiu-Jitsu%20classes." class="btn-glass btn-sm">Sign Up</a></div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="ft">
+      <div class="fbr"><div class="fbn"><img style="height:32px;width:auto;filter:drop-shadow(0 0 6px rgba(245,200,0,.25))" src="media/images/logo.png" alt="Hybrid"> <span style="font-family:var(--fd);font-size:18px;font-weight:800;color:var(--y)">HYBRID</span></div><p>Where strength meets skill, and champions are forged. 9 Years Strong.</p><div class="fmo">"Rule #1 Never Be #2"</div></div>
+      <div class="fc"><h4>Quick Links</h4><ul><li><a href="index.html#about">About Us</a></li><li><a href="programs.html">Hybrid Performance</a></li><li><a href="coaches.html">Performance Coaches</a></li><li><a href="membership.html">Membership</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="fc"><h4>Hybrid Performance</h4><ul><li>MMA</li><li>BOXING</li><li>BRAZILIAN JIU-JITSU</li><li>MUAY THAI</li><li>KICKBOXING</li><li>JEET KUNE DO</li></ul></div>
+    </div>
+    <div class="fbo"><div class="fcp">© 2026 Hybrid Combative Academy Gym. Built with <span>♥</span></div><div class="fisn">ISN Certified · Malaysia's #1</div></div>
+  </div>
+</footer>
+
+<script src="js/script.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.querySelector('.membership-reel-video');
+  const muteButton = document.querySelector('.membership-reel-mute');
+  const progressContainer = document.querySelector('.membership-reel-progress-container');
+  const progressFill = document.querySelector('.membership-reel-progress-fill');
+  const shell = document.querySelector('.membership-reel-shell');
+  if (!video || !muteButton || !progressContainer || !progressFill || !shell) return;
+  let isDragging = false;
+
+  const loadMembershipVideo = (shouldPlay = true) => {
+    if (video.dataset.loaded !== 'true') {
+      video.querySelectorAll('source[data-src]').forEach((source) => {
+        source.src = source.dataset.src;
+        source.removeAttribute('data-src');
+      });
+      video.dataset.loaded = 'true';
+      video.load();
+    }
+    if (shouldPlay) video.play().catch(() => {});
+  };
+
+  const syncMuteState = () => {
+    const isMuted = video.muted;
+    muteButton.classList.toggle('is-unmuted', !isMuted);
+    muteButton.setAttribute('aria-pressed', String(!isMuted));
+    muteButton.setAttribute('aria-label', isMuted ? 'Unmute membership video' : 'Mute membership video');
+  };
+
+  const handleTapToggle = (e) => {
+    e.stopPropagation();
+    loadMembershipVideo();
+    video.muted = !video.muted;
+    if (!video.muted) {
+      video.play().catch(() => {});
+    }
+    syncMuteState();
+  };
+
+  video.addEventListener('click', handleTapToggle);
+  muteButton.addEventListener('click', handleTapToggle);
+
+  const handleSeek = (e) => {
+    loadMembershipVideo(false);
+    if (!video.duration) return;
+    const rect = progressContainer.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const offsetX = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    const percentage = offsetX / rect.width;
+    video.currentTime = percentage * video.duration;
+    progressFill.style.width = `${percentage * 100}%`;
+  };
+
+  progressContainer.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    shell.classList.add('is-scrubbing');
+    handleSeek(e);
+  });
+  window.addEventListener('mousemove', (e) => {
+    if (isDragging) handleSeek(e);
+  });
+  window.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      shell.classList.remove('is-scrubbing');
+    }
+  });
+
+  progressContainer.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    shell.classList.add('is-scrubbing');
+    handleSeek(e);
+  }, { passive: true });
+  window.addEventListener('touchmove', (e) => {
+    if (isDragging) handleSeek(e);
+  }, { passive: false });
+  window.addEventListener('touchend', () => {
+    if (isDragging) {
+      isDragging = false;
+      shell.classList.remove('is-scrubbing');
+    }
+  });
+
+  video.addEventListener('timeupdate', () => {
+    if (video.duration && !isDragging) {
+      const percent = (video.currentTime / video.duration) * 100;
+      progressFill.style.width = `${percent}%`;
+    }
+  });
+
+  video.addEventListener('play', () => {
+    shell.classList.add('is-playing');
+  });
+  video.addEventListener('pause', () => {
+    shell.classList.remove('is-playing');
+  });
+  video.addEventListener('ended', () => {
+    shell.classList.remove('is-playing');
+    progressFill.style.width = '0%';
+  });
+
+  syncMuteState();
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadMembershipVideo();
+          video.muted = true;
+          video.play().catch(() => {});
+          syncMuteState();
+        } else if (video.dataset.loaded === 'true') {
+          video.pause();
+          video.muted = true;
+          syncMuteState();
+        }
+      });
+    }, { rootMargin: '220px 0px', threshold: 0.2 });
+    observer.observe(shell);
+  } else {
+    loadMembershipVideo();
+    video.muted = true;
+    video.play().catch(() => {});
+    syncMuteState();
+  }
+});
+</script>
+</body>
+</html>
+

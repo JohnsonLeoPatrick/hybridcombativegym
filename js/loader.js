@@ -1,0 +1,141 @@
+// First visit intro: keep overlay while hero video warms up in background.     
+const isHomePage = location.pathname === '/' || location.pathname.endsWith('index.html') || location.pathname.endsWith('HYBRID%20GYM/');                        
+if (isHomePage) {
+  const playHeroVideo = () => {
+    const heroVid = document.getElementById('heroVid');
+    if (heroVid) setTimeout(() => heroVid.play().catch(() => {}), 900);
+  };
+  const style = document.createElement('style');
+  style.textContent = `
+    .nav-logo img { opacity: 0; transition: opacity 0.3s ease; }
+    .intro-loader { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: auto; }
+    .intro-loader-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(circle at center, #141414, #000); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+    .intro-logo-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+    .intro-logo { width: min(24vw, 130px); height: auto; filter: drop-shadow(0 0 16px rgba(245,200,0,0.26)) drop-shadow(0 0 30px rgba(245,200,0,0.16)); transform-origin: center center; will-change: transform; transition: opacity 0.3s; animation: logoPulse 2s infinite ease-in-out; }
+    @keyframes logoPulse { 0%, 100% { opacity: 0.7; transform: scale(0.98); } 50% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 25px rgba(245,200,0,0.4)) drop-shadow(0 0 40px rgba(245,200,0,0.2)); } }
+    @media(max-width:768px) { .intro-logo { width: min(34vw, 120px); } }
+    .intro-progress-track { width: 180px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; transition: opacity 0.4s ease, transform 0.4s ease; transform: translateY(0); }
+    .intro-progress-bar { width: 0%; height: 100%; background: var(--y); box-shadow: 0 0 10px var(--y); transition: width 0.35s cubic-bezier(0.1, 0.8, 0.2, 1); }
+    .intro-hide .intro-progress-track { opacity: 0; transform: translateY(10px); }
+    body.intro-active { overflow: hidden !important; }
+
+    #hc > * { opacity: 0; filter: blur(12px); transform: translateY(20px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform, opacity, filter; }
+    body.hero-animate #hc > * { opacity: 1; filter: blur(0); transform: translateY(0); }
+    body.hero-animate #hc > *:nth-child(1) { transition-delay: 0.05s; }
+    body.hero-animate #hc > *:nth-child(2) { transition-delay: 0.15s; }
+    body.hero-animate #hc > *:nth-child(3) { transition-delay: 0.25s; }
+    body.hero-animate #hc > *:nth-child(4) { transition-delay: 0.35s; }
+    body.hero-animate #hc > *:nth-child(5) { transition-delay: 0.45s; }
+  `;
+  document.head.appendChild(style);
+
+  const introOverlay = document.createElement('div');
+  introOverlay.className = 'intro-loader';
+  const ldrBg = document.createElement('div'); ldrBg.className = 'intro-loader-bg';
+  const ldrWrap = document.createElement('div'); ldrWrap.className = 'intro-logo-wrap';
+  const ldrImg = document.createElement('img'); ldrImg.className = 'intro-logo'; ldrImg.src = 'media/images/logo.png'; ldrImg.alt = 'Hybrid';
+  const ldrTrack = document.createElement('div'); ldrTrack.className = 'intro-progress-track';
+  const ldrBar = document.createElement('div'); ldrBar.className = 'intro-progress-bar';
+  ldrTrack.appendChild(ldrBar); ldrWrap.appendChild(ldrImg); ldrWrap.appendChild(ldrTrack);
+  introOverlay.appendChild(ldrBg); introOverlay.appendChild(ldrWrap);
+  document.body.appendChild(introOverlay);
+  document.body.classList.add('intro-active');
+
+  const introLogo = introOverlay.querySelector('.intro-logo');
+  const introBar = introOverlay.querySelector('.intro-progress-bar');
+  const loaderBg = introOverlay.querySelector('.intro-loader-bg');
+
+  let currentProgress = 0;
+  const updateProgress = (target) => {
+    currentProgress = Math.max(currentProgress, target);
+    introBar.style.width = currentProgress + '%';
+  };
+
+  // Immediate progressive visual feedback
+  setTimeout(() => updateProgress(25), 50);
+  setTimeout(() => updateProgress(55), 250);
+  setTimeout(() => updateProgress(80), 600);
+
+  let finished = false;
+  const finishLoading = () => {
+    if (finished) return;
+    finished = true;
+
+    // Fill to 100%
+    updateProgress(100);
+
+    // Wait for progress bar animation to complete fully, then play entry transition
+    setTimeout(() => {
+      const tarLogo = document.querySelector('.nav-logo img');
+      introOverlay.classList.add('intro-hide');
+      introLogo.style.animation = 'none';
+
+      if (tarLogo && introLogo) {
+        const tarRect = tarLogo.getBoundingClientRect();
+        const srcRect = introLogo.getBoundingClientRect();
+
+        if (tarRect.width === 0) {
+          loaderBg.style.opacity = '0';
+          introLogo.style.opacity = '0';
+          if (tarLogo) tarLogo.style.opacity = '1';
+          playHeroVideo();
+          finishIntroAnim(introOverlay);
+          return;
+        }
+
+        const scale = tarRect.width / srcRect.width;
+        const deltaX = tarRect.left + (tarRect.width / 2) - (srcRect.left + (srcRect.width / 2));
+        const deltaY = tarRect.top + (tarRect.height / 2) - (srcRect.top + (srcRect.height / 2));
+        
+        introLogo.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease 0.2s';
+        introLogo.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scale})`;
+        
+        setTimeout(() => {
+          loaderBg.style.opacity = '0';
+          document.body.classList.add('hero-animate');
+          playHeroVideo();
+        }, 50);
+
+        setTimeout(() => {
+          introLogo.style.opacity = '0';
+          tarLogo.style.opacity = '1'; // Reveal actual nav logo as it lands
+          finishIntroAnim(introOverlay);
+        }, 650);
+      } else {
+        loaderBg.style.opacity = '0';
+        document.body.classList.add('hero-animate');
+        playHeroVideo();
+        if (tarLogo) tarLogo.style.opacity = '1';
+        finishIntroAnim(introOverlay);
+      }
+    }, 420);
+  };
+
+  // Check background video readiness
+  const heroVid = document.getElementById('heroVid');
+  if (heroVid) {
+    if (heroVid.readyState >= 3) {
+      finishLoading();
+    } else {
+      heroVid.addEventListener('canplay', finishLoading, { once: true });
+      heroVid.addEventListener('canplaythrough', finishLoading, { once: true });
+      heroVid.addEventListener('playing', finishLoading, { once: true });
+    }
+  } else {
+    finishLoading();
+  }
+
+  // Safety fallback after 3.8 seconds so slow connections aren't locked out
+  setTimeout(finishLoading, 3800);
+}
+
+function finishIntroAnim(overlay) {
+  setTimeout(() => {
+    if(overlay && overlay.parentNode) overlay.remove();
+    document.body.classList.remove('intro-active');
+  }, 200);
+}
+
+addEventListener('pageshow',()=>{
+  // Initial load transition handled above
+});

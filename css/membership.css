@@ -1,0 +1,97 @@
+/* HYBRID — Membership & Pricing */
+
+.ml{display:flex;align-items:center;gap:10px;font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin:60px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--card-border)}
+.gc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mc{padding:36px;border-radius:24px;display:flex;flex-direction:column;background:rgba(245,200,0,.03);border:1px solid rgba(245,200,0,.1);transition:all .35s var(--ease);position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;inset:0;background:url('../media/images/kickbox-bg.jpg') center/cover no-repeat;opacity:.08;pointer-events:none}
+.mc:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.mtp{font-family:var(--fb);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--r);margin-bottom:18px;position:relative}
+.mpr{display:flex;align-items:flex-start;gap:3px;margin-bottom:3px;position:relative}
+.mrm{font-family:var(--fd);font-size:20px;font-weight:600;color:var(--y);margin-top:12px}
+.mam{font-family:var(--fd);font-size:84px;font-weight:900;color:var(--y);line-height:.85;letter-spacing:-.04em}
+.mpe{font-family:var(--fb);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:22px;position:relative}
+.mf{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1;position:relative}
+.mf li{display:flex;align-items:center;gap:10px;font-size:19px;color:var(--fg2)}
+.ck{width:15px;height:15px;flex-shrink:0}
+.walkin-panel{margin-top:18px;padding:24px;border-radius:22px;background:linear-gradient(155deg,rgba(245,200,0,.07),rgba(255,255,255,.025) 48%,rgba(255,255,255,.015)),rgba(10,10,10,.62);border:1px solid rgba(245,200,0,.14);box-shadow:0 18px 52px rgba(0,0,0,.18);position:relative;overflow:hidden}
+.walkin-panel::before{content:'';position:absolute;inset:0;background:url('../media/images/kickbox-bg.jpg') center/cover no-repeat;opacity:.06;pointer-events:none}
+.walkin-head{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+.walkin-kicker{font-family:var(--fb);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--r);margin-bottom:5px}
+.walkin-head h2{font-family:var(--fd);font-size:clamp(24px,3vw,34px);font-weight:900;line-height:.95;color:#fff}
+.walkin-head span{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:7px 12px;border-radius:999px;background:rgba(245,200,0,.08);border:1px solid rgba(245,200,0,.16);color:rgba(255,232,128,.95);font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.walkin-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.walkin-card{padding:18px;border-radius:16px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;min-width:0}
+.walkin-type{font-family:var(--fb);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--y);margin-bottom:4px}
+.walkin-note{min-height:30px;color:var(--fg3);font-size:11px;line-height:1.35;margin-bottom:12px}
+.walkin-list{display:flex;flex-direction:column;gap:8px}
+.walkin-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.07)}
+.walkin-row span{color:var(--fg2);font-size:14px;font-weight:600;line-height:1.15}
+.walkin-row strong{font-family:var(--fd);font-size:28px;font-weight:900;color:var(--y);line-height:.9;white-space:nowrap}
+.walkin-row.is-best{padding:12px 12px;margin-top:2px;border:1px solid rgba(245,200,0,.17);border-radius:12px;background:rgba(245,200,0,.055)}
+.walkin-row.is-best span{color:#fff}
+.walkin-row.is-best strong{font-size:31px}
+.walkin-cta{position:relative;margin-top:16px}
+
+/* Martial arts cards — with background image */
+.mag{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mac{border-radius:20px;background:var(--card-bg);border:1px solid var(--card-border);display:flex;flex-direction:column;overflow:hidden;transition:all .35s var(--ease);position:relative}
+.mac::before{content:'';position:absolute;inset:0;background:url('../media/images/kickbox-bg.jpg') center/cover no-repeat;opacity:.06;pointer-events:none}
+.mac:hover{transform:translateY(-3px);border-color:rgba(245,200,0,.18);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+.mah{padding:18px 20px 0;display:flex;align-items:center;position:relative}
+.mah h3{font-family:var(--fd);font-size:18px;font-weight:700;color:var(--y)}
+.mas{font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--r);padding:3px 20px 0;position:relative}
+.mab{padding:12px 20px 20px;flex:1;display:flex;flex-direction:column;position:relative}
+.mapr{display:flex;align-items:flex-start;gap:3px}
+.marm{font-family:var(--fd);font-size:16px;font-weight:600;color:var(--y);margin-top:5px}
+.maam{font-family:var(--fd);font-size:44px;font-weight:900;color:var(--y);line-height:.85;letter-spacing:-.03em}
+.mape{font-family:var(--fb);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:12px}
+.maf{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;flex:1}
+.maf li{display:flex;align-items:center;gap:7px;font-size:17px;color:var(--fg2)}
+
+@media(max-width:768px){
+	.gc,.mag{gap:10px}
+	.gc,.mag{grid-template-columns:1fr}
+	.mc{padding:18px;border-radius:16px}
+	.mam{font-size:54px}
+	.mrm{font-size:16px;margin-top:8px}
+	.mf li{font-size:18px}
+	.walkin-panel{padding:16px;border-radius:16px}
+	.walkin-head{flex-direction:column;gap:10px;margin-bottom:14px}
+	.walkin-head span{white-space:normal;text-align:center}
+	.walkin-grid{grid-template-columns:1fr}
+	.walkin-card{padding:14px}
+	.walkin-note{min-height:0}
+	.walkin-row span{font-size:13px}
+	.walkin-row strong{font-size:25px}
+	.walkin-row.is-best strong{font-size:28px}
+	.ml{margin:42px 0 16px}
+	.mah{padding:14px 14px 0}
+	.mah h3{font-size:19px}
+	.mas{font-size:11px}
+	.mab{padding:10px 14px 14px}
+	.maam{font-size:34px}
+	.marm{font-size:13px;margin-top:3px}
+	.mape{font-size:11px}
+	.maf li{font-size:18px;line-height:1.4}
+	.btn-sm{font-size:14px}
+}
+
+@media(max-width:480px){
+	.walkin-panel{margin-top:14px;padding:14px;border-radius:15px}
+	.walkin-head h2{font-size:26px;line-height:1}
+	.walkin-head span{width:100%;min-height:0;padding:8px 10px;font-size:10px;line-height:1.35;letter-spacing:.06em}
+	.walkin-grid{gap:10px}
+	.walkin-card{padding:13px;border-radius:14px}
+	.walkin-type{font-size:12px}
+	.walkin-note{font-size:10px;margin-bottom:8px}
+	.walkin-list{gap:6px}
+	.walkin-row{min-height:46px;padding:8px 0}
+	.walkin-row span{font-size:12px}
+	.walkin-row strong{font-size:23px}
+	.walkin-row.is-best{padding:10px}
+	.walkin-row.is-best strong{font-size:25px}
+	.walkin-cta{width:100%;margin-top:14px}
+	.mah h3{font-size:18px}
+	.maam{font-size:32px}
+	.maf li{font-size:17px}
+}
