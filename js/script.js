@@ -605,7 +605,8 @@ initStackedCarousel({
 initStackedCarousel({
   images:[
     document.getElementById('arenaImage1'),
-    document.getElementById('arenaImage2')
+    document.getElementById('arenaImage2'),
+    document.getElementById('arenaImage3')
   ].filter(Boolean),
   caption:document.getElementById('arenaCaption'),
   dots:Array.from(document.getElementById('arenaDots')?.querySelectorAll('.benton-dot')||[]),
