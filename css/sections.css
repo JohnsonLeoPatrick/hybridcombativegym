@@ -30,6 +30,26 @@
 .isn-text p{font-size:16px;color:var(--fg2);line-height:1.85;margin-bottom:14px}
 .isn-text p strong{color:#fff;font-weight:600}
 
+/* Start Here */
+.start-sec{padding:34px 0 10px}
+.start-shell{position:relative;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,80px)}
+.start-panel{padding:28px;border-radius:30px;background:radial-gradient(circle at top left, rgba(245,200,0,.12), transparent 32%),linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.16)}
+.start-top{display:flex;align-items:end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.start-top-copy{max-width:640px}
+.start-top-copy p{font-size:15px;color:var(--fg3);line-height:1.75}
+.start-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(245,200,0,.08);border:1px solid rgba(245,200,0,.16);color:var(--y);font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.start-badge span{width:7px;height:7px;border-radius:50%;background:var(--y);box-shadow:0 0 0 6px rgba(245,200,0,.08)}
+.start-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.start-card{display:flex;flex-direction:column;gap:14px;min-height:260px;padding:24px 22px 22px;border-radius:24px;text-decoration:none;color:inherit;background:linear-gradient(180deg, rgba(14,14,14,.96), rgba(8,8,8,.98));border:1px solid rgba(255,255,255,.08);transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease)}
+.start-card:hover{transform:translateY(-6px);border-color:rgba(245,200,0,.2);box-shadow:0 18px 46px rgba(0,0,0,.22);background:linear-gradient(180deg, rgba(20,20,20,.98), rgba(10,10,10,1))}
+.start-card-kicker{font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--y)}
+.start-card h3{font-family:var(--fd);font-size:24px;font-weight:800;line-height:1;color:#fff}
+.start-card p{font-size:14px;color:var(--fg3);line-height:1.7;flex:1}
+.start-card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.start-card-note{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+.start-card-arrow{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#111;background:radial-gradient(circle at 30% 30%, #ffe278, #f5c800 65%, #bf8f00 100%);box-shadow:0 12px 26px rgba(245,200,0,.18)}
+.start-card-arrow svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;fill:none}
+
 /* Programs */
 .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;align-items:start}
 .pc{padding:36px 28px;border-radius:22px;position:relative;overflow:hidden;background:var(--card-bg);border:1px solid var(--card-border);transition:all .4s var(--ease)}
@@ -241,12 +261,23 @@
 .coach-points li{font-size:17px;color:rgba(255,255,255,.86);line-height:1.45;padding-left:18px;position:relative;text-shadow:0 1px 6px rgba(0,0,0,.65)}
 .coach-points li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--y)}
 @media(max-width:980px){
+  .start-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ag,.isn-inner{grid-template-columns:1fr;gap:28px}
   .pg,.wg,.coaches-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sg{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media(max-width:768px){
+  .start-sec{padding:26px 0 2px}
+  .start-panel{padding:22px 18px}
+  .start-top{margin-bottom:18px}
+  .start-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .start-card{min-height:0;padding:18px 16px;gap:10px}
+  .start-card h3{font-size:20px}
+  .start-card p{font-size:13px;line-height:1.55}
+  .start-card-note{font-size:10px}
+  .start-card-arrow{width:36px;height:36px}
+  .start-card-arrow svg{width:16px;height:16px}
   .sec{padding:44px 16px 56px}
   .secw{padding:54px 0}
   .secwi{padding:0 16px}
@@ -298,6 +329,14 @@
 @media(max-width:480px){
   .sec{padding:38px 14px 48px}
   .secwi{padding:0 14px}
+  .start-panel{padding:18px 14px}
+  .start-grid{gap:10px}
+  .start-card{padding:16px 14px}
+  .start-card h3{font-size:18px}
+  .start-card-kicker{font-size:10px}
+  .start-card p{font-size:12px;line-height:1.5}
+  .start-card-meta{align-items:flex-end}
+  .start-card-note{max-width:8ch;line-height:1.2}
   .isn-logo-img{max-width:320px}
   .reviews-top{margin-bottom:16px}
   .reviews-score strong{
