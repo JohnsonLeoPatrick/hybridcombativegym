@@ -44,7 +44,7 @@
 .start-card:hover{transform:translateY(-6px);border-color:rgba(245,200,0,.2);box-shadow:0 18px 46px rgba(0,0,0,.22);background:linear-gradient(180deg, rgba(20,20,20,.98), rgba(10,10,10,1))}
 .start-card-kicker{font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--y)}
 .start-card h3{font-family:var(--fd);font-size:24px;font-weight:800;line-height:1;color:#fff}
-.start-card p{font-size:14px;color:var(--fg3);line-height:1.7;flex:1}
+.start-card p{font-size:16px;font-weight:500;color:rgba(255,255,255,.68);line-height:1.6;flex:1}
 .start-card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .start-card-note{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.42)}
 .start-card-arrow{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#111;background:radial-gradient(circle at 30% 30%, #ffe278, #f5c800 65%, #bf8f00 100%);box-shadow:0 12px 26px rgba(245,200,0,.18)}
@@ -274,7 +274,7 @@
   .start-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .start-card{min-height:0;padding:18px 16px;gap:10px}
   .start-card h3{font-size:20px}
-  .start-card p{font-size:13px;line-height:1.55}
+  .start-card p{font-size:15px;line-height:1.55}
   .start-card-note{font-size:10px}
   .start-card-arrow{width:36px;height:36px}
   .start-card-arrow svg{width:16px;height:16px}
@@ -334,7 +334,7 @@
   .start-card{padding:16px 14px}
   .start-card h3{font-size:18px}
   .start-card-kicker{font-size:10px}
-  .start-card p{font-size:12px;line-height:1.5}
+  .start-card p{font-size:14px;line-height:1.5}
   .start-card-meta{align-items:flex-end}
   .start-card-note{max-width:8ch;line-height:1.2}
   .isn-logo-img{max-width:320px}
