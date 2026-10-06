@@ -9,7 +9,9 @@ nav{transition-property:transform,width,height,padding,background,border-radius,
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;height:100%}
 .nav-links{display:flex;gap:24px;margin-left:auto;list-style:none;align-items:center}
 .nav-links a{font-family:var(--fb);font-size:13px;font-weight:400;color:var(--fg2);text-decoration:none;transition:color .25s}
-.nav-links a:hover{color:var(--y)}
+.nav-links a:hover,.nav-links a[aria-current="page"],.nav-mobile a[aria-current="page"]{color:var(--y)}
+.nav-links a{white-space:nowrap}
+nav.scrolled .nav-links{gap:18px}
 .nav-cta{margin-left:16px;padding:7px 18px;border-radius:980px;background:rgba(245,200,0,.12);border:1px solid rgba(245,200,0,.25);color:var(--y);font-family:var(--fb);font-size:12px;font-weight:600;text-decoration:none;transition:all .3s var(--ease)}
 .nav-cta:hover{background:rgba(245,200,0,.22);box-shadow:var(--bloom);color:#fff}
 
