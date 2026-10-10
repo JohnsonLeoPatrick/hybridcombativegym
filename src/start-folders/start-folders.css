@@ -36,12 +36,12 @@
   .start-panel:has(#start-folders-root:not([hidden])) .start-top .st br { display: none; }
   .start-panel:has(#start-folders-root:not([hidden])) .start-top .st .a::before { content: " "; }
 }
-/* Touch mode reveals normal-flow buttons below the folder, with no empty cloud space. */
+/* Phones tap to open the same floating physics while the section makes room for the cloud. */
 .start-folder-card:has(.folder-float--touch) .start-folder-stage { padding-top: 12px; }
-.folder-float--touch .folder-float__items { position: relative; top: auto; left: auto; width: 100%; height: auto; display: none; }
-.folder-float--touch[data-open] .folder-float__items { display: grid; gap: 10px; padding-top: 12px; }
-.start-folder-card .folder-float--touch[data-open] .folder-float__items::before { display: none; }
-.start-folder-card .folder-float--touch .folder-float__item { position: relative; inset: auto; width: 100%; height: auto; min-height: 44px; padding: 8px; white-space: normal; line-height: 1.3; transform: none; scale: none; transition: opacity 160ms ease; touch-action: pan-y; }
+.start-folder-card[data-expanded]:has(.folder-float--touch) .start-folder-stage { padding-top: 160px; }
+.folder-float--touch .folder-float__items { position: absolute; top: var(--ff-tab); left: 50%; width: 0; height: 0; display: block; }
+.folder-float--touch .folder-float__item { height: 44px; border-radius: 22px; touch-action: pan-y; }
+.folder-float--touch[data-live] .folder-float__item { touch-action: none; }
 .folder-float--touch .folder-float__drift { animation: none; }
 @media (max-width: 1050px) {
   .start-folders-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }

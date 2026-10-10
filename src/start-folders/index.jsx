@@ -48,7 +48,7 @@ function PathFolder({ path, index, open, onOpenChange }) {
     <div className="start-folder-stage" ref={slot}>
       <FolderFloat key={width} items={path.items} label={path.title} sublabel={path.subtitle}
         width={width} height={compact ? 132 : 140} spread={Math.max(80, width / 2 - 14)} lift={34} rowGap={52}
-        trigger={compact ? 'click' : 'hover'} physics={!compact}
+        trigger={compact ? 'click' : 'hover'} physics
         className={compact ? 'folder-float--touch' : ''}
         folderColor="#66540f" frontColor="#29271d" paperColor="#f5c800"
         itemColor="#f5c800" itemTextColor="#18160b" labelColor="#fff"
