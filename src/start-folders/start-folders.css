@@ -1,0 +1,69 @@
+/* Scoped to the home-page React island. The original cards remain a no-JS fallback. */
+#start-folders-root[hidden], #start-cards-fallback[hidden] { display: none; }
+.start-folder-hint { margin: 0 0 16px; color: var(--fg3); font-size: 12px; letter-spacing: .02em; }
+.start-folder-hint span { color: var(--y); margin-right: 6px; }
+.start-folders-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.start-folder-card { min-width: 0; position: relative; isolation: isolate; }
+.start-folder-card[data-expanded] { z-index: 2; }
+.start-folder-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 4px 8px; border-bottom: 1px solid rgba(245,200,0,.18); }
+.start-folder-number { color: rgba(245,200,0,.4); font: 500 12px var(--fd); }
+.start-folder-stage { display: flex; justify-content: center; align-items: flex-end; padding-top: 160px; padding-bottom: 4px; }
+.start-folder-description { min-height: 48px; padding: 6px 4px; font-size: 13px; line-height: 1.6; color: var(--fg2); }
+.start-folder-link { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 4px; text-decoration: none; color: var(--fg2); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; }
+.start-folder-link:hover { color: var(--y); }
+.start-folder-link .start-card-arrow { width: 34px; height: 34px; flex-shrink: 0; transition: transform 200ms ease; }
+.start-folder-link:hover .start-card-arrow { transform: translateX(3px); }
+.start-folder-link:focus-visible { outline: 2px solid var(--y); outline-offset: 5px; border-radius: 6px; }
+.start-folder-card .folder-float__label { font-family: var(--fd); font-size: 20px; line-height: 1.05; font-weight: 800; max-width: 15ch; }
+.start-folder-card .folder-float__sub { font-size: 11px; line-height: 1.4; color: #f5c800; opacity: .9; margin-top: 4px; }
+.start-folder-card .folder-float__front { padding: 14px; border: 1px solid rgba(245,200,0,.24); box-shadow: 0 -10px 24px rgba(0,0,0,.28), 0 12px 22px rgba(0,0,0,.25); }
+.start-folder-card .folder-float__back { border: 1px solid rgba(245,200,0,.2); }
+.start-folder-card .folder-float__paper { background: linear-gradient(180deg,#ffe278,#d7ae17); }
+.start-folder-card .folder-float__item { height: 36px; font-size: 13px; font-weight: 700; padding: 0 12px; border: 1px solid #ffe278; touch-action: none; }
+/* Keep the hover bridge inside this column so neighboring folders remain reachable. */
+.start-folder-card .folder-float[data-open] .folder-float__items::before { left: calc(-1 * var(--ff-w) / 2); width: var(--ff-w); top: -154px; height: 166px; }
+.start-folder-card .folder-float__trigger:focus-visible { outline: 2px solid #ffe278; outline-offset: 6px; }
+.start-folder-card .folder-float__item:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.start-folder-card .folder-float[data-reduced-motion] .folder-float__item { animation: none; }
+
+/* Compact heading and tighter shell are limited to the enhanced section. */
+.start-panel:has(#start-folders-root:not([hidden])) { padding: 22px; }
+.start-panel:has(#start-folders-root:not([hidden])) .start-top { margin-bottom: 10px; }
+.start-panel:has(#start-folders-root:not([hidden])) .start-top .st { font-size: clamp(30px, 3.2vw, 44px); line-height: 1.04; margin: 10px 0 8px !important; }
+.start-panel:has(#start-folders-root:not([hidden])) .start-top-copy p { font-size: 13px; }
+.start-folder-link { min-height: 44px; }
+@media (min-width: 641px) {
+  .start-panel:has(#start-folders-root:not([hidden])) .start-top .st br { display: none; }
+  .start-panel:has(#start-folders-root:not([hidden])) .start-top .st .a::before { content: " "; }
+}
+/* Touch mode reveals normal-flow buttons below the folder, with no empty cloud space. */
+.start-folder-card:has(.folder-float--touch) .start-folder-stage { padding-top: 12px; }
+.folder-float--touch .folder-float__items { position: relative; top: auto; left: auto; width: 100%; height: auto; display: none; }
+.folder-float--touch[data-open] .folder-float__items { display: grid; gap: 10px; padding-top: 12px; }
+.start-folder-card .folder-float--touch[data-open] .folder-float__items::before { display: none; }
+.start-folder-card .folder-float--touch .folder-float__item { position: relative; inset: auto; width: 100%; height: auto; min-height: 44px; padding: 8px; white-space: normal; line-height: 1.3; transform: none; scale: none; transition: opacity 160ms ease; touch-action: pan-y; }
+.folder-float--touch .folder-float__drift { animation: none; }
+@media (max-width: 1050px) {
+  .start-folders-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+}
+@media (max-width: 640px) {
+  .start-panel:has(#start-folders-root:not([hidden])) { padding: 18px 12px; border-radius: 22px; }
+  .start-panel:has(#start-folders-root:not([hidden])) .start-top .st { font-size: clamp(27px, 7vw, 36px); }
+  .start-folders-grid { gap: 20px 12px; }
+  .start-folder-heading { padding: 0 0 8px; min-height: 28px; gap: 3px; }
+  .start-folder-heading .start-card-kicker { font-size: 9px; letter-spacing: .06em; }
+  .start-folder-number { display: none; }
+  .start-folder-card .folder-float__label { font-size: clamp(15px, 4vw, 20px); line-height: 1.1; }
+  .start-folder-card .folder-float__front { padding: 12px 10px; }
+  .start-folder-card .folder-float__sub { display: none; }
+  .start-folder-description { display: none; min-height: 0; padding: 8px 0 4px; font-size: 12px; line-height: 1.45; }
+  .start-folder-card[data-expanded] .start-folder-description { display: block; }
+  .start-folder-link { padding: 4px 0; font-size: 9px; letter-spacing: .02em; min-height: 44px; }
+  .start-folder-link .start-card-arrow { width: 28px; height: 28px; }
+  .start-folder-link .start-card-arrow svg { width: 14px; height: 14px; }
+  .start-folder-hint { font-size: 11px; margin-bottom: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .start-folder-card *, .start-folder-card *::before { animation: none !important; transition: none !important; }
+  .start-folder-link:hover .start-card-arrow { transform: none; }
+}

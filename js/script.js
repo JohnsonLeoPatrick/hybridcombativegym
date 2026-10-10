@@ -541,9 +541,11 @@ const animateStackedCarousel=({images,fromIndex,toIndex,onComplete})=>{
   },STACKED_CAROUSEL_TRANSITION_MS);
 };
 
-const initStackedCarousel=({images,caption,dots,prevButton,nextButton})=>{
+const initStackedCarousel=({images,caption,dots,prevButton,nextButton,nightImages=[],modeButton})=>{
   if(!images.length) return;
 
+  const dayImages=images;
+  let isNight=false;
   let index=0;
   let isAnimating=false;
   let timerId=null;
@@ -586,6 +588,37 @@ const initStackedCarousel=({images,caption,dots,prevButton,nextButton})=>{
     dot.addEventListener('click',()=>changeSlide(dotIndex));
   });
 
+  modeButton?.addEventListener('click',async()=>{
+    if(isAnimating||nightImages.length!==dayImages.length) return;
+    isAnimating=true;
+    modeButton.setAttribute('aria-busy','true');
+    const nextImages=isNight?dayImages:nightImages;
+    try{
+      await Promise.all(nextImages.map(img=>{
+        img.loading='eager';
+        return img.decode();
+      }));
+      const allImages=[...images,...nextImages];
+      const fromIndex=index;
+      const toIndex=images.length+index;
+      isNight=!isNight;
+      images=nextImages;
+      modeButton.setAttribute('aria-pressed',String(isNight));
+      modeButton.querySelector('.equipment-mode-label').textContent=isNight?'Day mode':'Night mode';
+      modeButton.querySelector('.equipment-mode-thumb').textContent=isNight?'☀':'☾';
+      const finish=()=>{isAnimating=false;modeButton.removeAttribute('aria-busy');};
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        setStackedCarouselImage(allImages,toIndex);
+        finish();
+      }else{
+        animateStackedCarousel({images:allImages,fromIndex,toIndex,onComplete:finish});
+      }
+    }catch{
+      isAnimating=false;
+      modeButton.removeAttribute('aria-busy');
+    }
+  });
+
   setStackedCarouselImage(images,index);
   syncUi();
 };
@@ -596,6 +629,8 @@ initStackedCarousel({
     document.getElementById('bentonImage3'),
     document.getElementById('bentonImage4')
   ].filter(Boolean),
+  nightImages:[1,2,3].map(n=>document.getElementById(`bentonNight${n}`)).filter(Boolean),
+  modeButton:document.getElementById('equipmentMode'),
   caption:document.getElementById('bentonCaption'),
   dots:Array.from(document.getElementById('bentonDots')?.querySelectorAll('.benton-dot')||[]),
   prevButton:document.getElementById('bentonPrev'),

@@ -1,0 +1,34 @@
+{
+  "name": "hybrid-gym1",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node scripts/build.mjs --dev",
+    "build": "node scripts/build.mjs",
+    "check:folders": "node scripts/check-folders.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnsonLeoPatrick/hybridcombativegym.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JohnsonLeoPatrick/hybridcombativegym/issues"
+  },
+  "homepage": "https://github.com/JohnsonLeoPatrick/hybridcombativegym#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "esbuild": "^0.28.2",
+    "serve": "^14.2.6"
+  },
+  "dependencies": {
+    "matter-js": "^0.20.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}

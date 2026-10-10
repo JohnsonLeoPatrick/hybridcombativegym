@@ -76,6 +76,8 @@
   }
 }
 </script>
+<link rel="stylesheet" href="js/generated/start-folders.css">
+<script src="js/generated/start-folders.js" defer></script>
 </head>
 <body>
 <script src="js/loader.js?v=custom2" defer></script>
@@ -133,7 +135,8 @@
           <p>Pick a path and start fast.</p>
         </div>
       </div>
-      <div class="start-grid">
+      <div id="start-folders-root" hidden></div>
+      <div class="start-grid" id="start-cards-fallback">
         <a class="start-card sr" href="https://wa.me/60196993060?text=Hi%20Hybrid%20Gym!%20I%27m%20new%20and%20I%27d%20like%20help%20choosing%20the%20right%20program.">
           <div class="start-card-kicker">New Here</div>
           <h3>I'm New</h3>
@@ -402,6 +405,37 @@
       justify-content: center;
       margin-bottom: 18px;
       font-family: var(--fd, 'Montserrat', Arial, sans-serif);
+    }
+    .equipment-mode {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 44px;
+      padding: 6px 10px;
+      border: 1px solid rgba(245,200,0,.25);
+      border-radius: 999px;
+      background: rgba(245,200,0,.06);
+      color: #f5d85c;
+      font: 600 11px var(--fd, sans-serif);
+      cursor: pointer;
+      transition: background .35s ease, border-color .35s ease, transform .35s ease;
+    }
+    .equipment-mode:hover { background: rgba(245,200,0,.14); transform: translateY(-1px); }
+    .equipment-mode:active { transform: scale(.97); }
+    .equipment-mode:focus-visible { outline: 2px solid #f5c800; outline-offset: 4px; }
+    .equipment-mode-track { width: 36px; height: 22px; padding: 2px; border-radius: 20px; background: rgba(245,200,0,.15); }
+    .equipment-mode-thumb { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: #f5c800; color: #171717; font-size: 15px; transition: transform .45s cubic-bezier(.22,1,.36,1), background .35s ease; }
+    .equipment-mode[aria-pressed="true"] { background: #20243b; border-color: #737eae; color: #e0e5ff; }
+    .equipment-mode[aria-pressed="true"] .equipment-mode-thumb { transform: translateX(14px); background: #d5ddff; }
+    .equipment-mode-label { min-width: 59px; }
+    @media (max-width: 600px) {
+      .equipment-heading:has(.equipment-mode) { gap: 8px; }
+      .equipment-heading:has(.equipment-mode) .equipment-heading-text { font-size: 1.05rem; }
+      .equipment-mode { padding: 6px 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .equipment-mode, .equipment-mode-thumb { transition: none; }
     }
     .equipment-heading-text {
       font-size: 1.35rem;
@@ -1017,6 +1051,10 @@
     <div class="carousel-box">
       <div class="equipment-heading">
     <span class="equipment-heading-text">Rare, High-Quality Equipment</span>
+    <button class="equipment-mode" id="equipmentMode" type="button" aria-pressed="false" aria-label="Night mode" aria-controls="bentonBox">
+      <span class="equipment-mode-track" aria-hidden="true"><span class="equipment-mode-thumb">☾</span></span>
+      <span class="equipment-mode-label">Night mode</span>
+    </button>
   </div>
 
   <div class="benton-carousel">
@@ -1025,6 +1063,9 @@
       <img id="bentonImage1" class="active lightbox-trigger" src="media/images/gym pic1.jpg" alt="Our Story Image 1" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='media/images/logo.png'">
       <img id="bentonImage3" class="lightbox-trigger" src="media/images/gym pic3.jpg" alt="Our Story Image 3" loading="lazy" decoding="async" style="display:none">
       <img id="bentonImage4" class="lightbox-trigger" src="media/images/gym pic4.jpg" alt="Our Story Image 4" loading="lazy" decoding="async" style="display:none">
+      <img id="bentonNight1" class="lightbox-trigger" src="media/images/gym.night1.jpg" alt="Gym equipment at night, photo 1" loading="lazy" decoding="async" style="display:none">
+      <img id="bentonNight2" class="lightbox-trigger" src="media/images/gym.night2.jpg" alt="Gym equipment at night, photo 2" loading="lazy" decoding="async" style="display:none">
+      <img id="bentonNight3" class="lightbox-trigger" src="media/images/gym.night3.jpg" alt="Gym equipment at night, photo 3" loading="lazy" decoding="async" style="display:none">
       <div class="benton-caption" id="bentonCaption">1 / 3</div>
       <button id="bentonPrev" class="benton-nav benton-prev" type="button" aria-label="Previous image">
         <svg viewBox="0 0 24 24" aria-hidden="true">
